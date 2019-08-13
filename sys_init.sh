@@ -28,11 +28,16 @@ INSTALL_PYTHON3(){
 
 INSTALL_VIMRC(){
     echo "start install vimrc..."
-    mkdir ~/.vim/colors
+    mkdir -p ~/.vim/colors
     cd ~
-    git clone https://github.com/wanchaosoft/daevim.git ./.vim
-    ln -s ./.vim/.vim.local ./.vimrc
+    git clone https://github.com/wanchaosoft/daevim.git ~/.vim
+    ln -s ~/.vim/.vim.local ./.vimrc
     echo "vimrc installed."
+}
+INSTALL_NGINX(){
+    yum install nginx
+    # start nginx
+    nginx
 }
 
 MAIN(){
@@ -43,7 +48,9 @@ MAIN(){
     cd /opt
     INSTALL_VIMRC
     cd /opt
+    INSTALL_NGINX
+    cd /opt
 }
 
 # execute it
-# MAIN
+MAIN
