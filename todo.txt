@@ -1,0 +1,45 @@
+## devinit
+
+iterm2 download and set, theme set: spaceship-prompt/spaceship
+zsh
+tmux
+go,proxy,gomodule
+docker,proxy
+python,pipproxy,pyenv
+vim,YouCompleteMe,daenvim
+git, brew install postman, wireshark,vscode,chrome
+
+## example
+
+-python
+    -pip
+        -conf
+            -pip.conf
+        -scripts
+            -install.py
+            -check.py
+        -readme.md
+-git
+    -gitignore
+        -conf
+            -gitignore
+        -scripts
+            -install.py
+            -check.py
+    -gitmessage
+        -conf
+            -gitmessage
+        -scripts
+            -install.py
+            -check.py
+-readme.md
+-install.py
+-list.py
+-check.py path, conf
+-update.py
+-clean.py
+-conf.yaml.example
+
+## github.io
+wireshark syntax
+gitbook
