@@ -1,0 +1,28 @@
+pip:
+  link:
+    pip.conf: ~/.pip/pip.conf
+    
+git:
+  link:
+    gitconfig: ~/.gitconfig
+    gitmessage: ~/.gitmessage
+zsh:
+  link:
+    zshrc: ~/.zshrc
+    ohmyzsh: ~/.oh-my-zsh
+  scripts:
+    - install.sh
+fonts:
+  scripts:
+    - install.sh
+tmux:
+  link:
+    tmux.conf: .tmux.conf
+iterm2:
+shell:
+alias:
+  link:
+    alias: ~/.alias
+docker:
+go:
+pyenv:

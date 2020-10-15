@@ -1,0 +1,31 @@
+# Reference: https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
+# want vi to be the default editor for readline
+set editing-mode vi
+
+# vi settings
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+    set keymap vi-insert
+    "jk": vi-movement-mode
+    #"\C-w": backward-kill-word
+    #"\C-p": history-search-backward
+$endif
+
+#see http://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+# for description of these commands
+set completion-ignore-case on
+set completion-prefix-display-length 2
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Alt+key
+"\eh": backward-char
+"\el": forward-char
+"\ej": next-history
+"\ek": previous-history
+"\eH": backward-word
+"\eL": forward-word
+"\eJ": beginning-of-line
+"\eK": end-of-line

@@ -1,0 +1,33 @@
+[user]
+	name = dasky92
+	email = daedrath@outlook.com
+[alias]
+    ai = add -i
+	co = commit
+    cm = commit -m
+	ca = commit --amend
+	br = branch
+	ct = checkout
+	ctb = checkout -b
+	st = status
+	unstage = reset HEAD --
+	last = log -1
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	pl = pull
+	pu = push
+	r = remote
+	rbi = rebase -i
+	rba = rebase --abort
+	rbn = rebase --continue
+	rbs = rebase --skip
+	cl = config --list
+[http]
+	postBuffer = 1048576000
+[core]
+	compression = 4
+	compression = -1
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
