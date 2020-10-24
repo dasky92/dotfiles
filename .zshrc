@@ -101,3 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# alias
+if [ -e "${HOME}/.alias" ]; then
+    source "${HOME}/.alias"
+fi
+# alias END

@@ -1,0 +1,102 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACTION_ERROR	tools/install.py	/^ACTION_ERROR = "ACTION[{}] not in configurations."$/;"	v
+BLUE	tools/install.py	/^    BLUE = '\\033[40;94m'$/;"	v	class:Color
+Color	tools/install.py	/^class Color(object):$/;"	c
+DEBUG	tools/install.py	/^DEBUG = False$/;"	v
+Dispatcher	tools/install.py	/^class Dispatcher(Option):$/;"	c
+DispatcherError	tools/install.py	/^class DispatcherError(Exception):$/;"	c
+END	tools/install.py	/^    END = '\\033[0m'$/;"	v	class:Color
+ERROR	tools/install.py	/^    ERROR = 20$/;"	v	class:Level
+GLOBAL_CONF	tools/install.py	/^GLOBAL_CONF = 'config.yaml'$/;"	v
+GREEN	tools/install.py	/^    GREEN = '\\033[40;92m'$/;"	v	class:Color
+Level	tools/install.py	/^class Level(object):$/;"	c
+Link	tools/install.py	/^class Link(OptionMixin):$/;"	c
+MAGENTA	tools/install.py	/^    MAGENTA = '\\033[40;95m'$/;"	v	class:Color
+Message	tools/install.py	/^class Message(with_metaclass(Singleton, object)):$/;"	c
+OK	tools/install.py	/^    OK = 0$/;"	v	class:Level
+OPTION_ERROR	tools/install.py	/^OPTION_ERROR = "OPTION[{}] not in configurations."$/;"	v
+Option	tools/install.py	/^class Option:$/;"	c
+OptionMixin	tools/install.py	/^class OptionMixin:$/;"	c
+PARAMETER_ERROR	tools/install.py	/^PARAMETER_ERROR = "Parameter error."$/;"	v
+PARAMETER_NUMBER_ERROR	tools/install.py	/^PARAMETER_NUMBER_ERROR = "Parameter number error."$/;"	v
+PARAMETER_TYPE_ERROR	tools/install.py	/^PARAMETER_TYPE_ERROR = "Type error."$/;"	v
+RED	tools/install.py	/^    RED = '\\033[40;91m'$/;"	v	class:Color
+SECTION_ERROR	tools/install.py	/^SECTION_ERROR = "SECTION[{}] not in configurations."$/;"	v
+SECTION_NO_ACTION_ERROR	tools/install.py	/^SECTION_NO_ACTION_ERROR = "SECTION[{}] no ACTION[{}]."$/;"	v
+Scripts	tools/install.py	/^class Scripts(OptionMixin):$/;"	c
+Singleton	tools/install.py	/^class Singleton(type):$/;"	c
+WARNING	tools/install.py	/^    WARNING = 10$/;"	v	class:Level
+YELLOW	tools/install.py	/^    YELLOW = '\\033[40;93m'$/;"	v	class:Color
+__call__	tools/install.py	/^    def __call__(cls, *args, **kwargs):$/;"	m	class:Singleton	file:
+__init__	tools/install.py	/^    def __init__(self):$/;"	m	class:Message
+__init__	tools/install.py	/^    def __init__(self, args):$/;"	m	class:Dispatcher
+__init__	tools/install.py	/^    def __init__(self, name):$/;"	m	class:Scripts
+__init__	tools/install.py	/^    def __init__(self, src, dest):$/;"	m	class:Link
+__name__	tools/install.py	/^    __name__ = "link"$/;"	v	class:Link
+__name__	tools/install.py	/^    __name__ = "scripts"$/;"	v	class:Scripts
+__new__	tools/install.py	/^        def __new__(cls, name, this_bases, d):$/;"	m	class:with_metaclass.metaclass	file:
+_getsection	tools/install.py	/^    def _getsection(self):$/;"	m	class:Dispatcher
+_instances	tools/install.py	/^    _instances = {}$/;"	v	class:Singleton
+actions	tools/install.py	/^actions = ["check", "install", "clean", "init", ]$/;"	v
+answer_is_yes	tools/backup.sh	/^answer_is_yes() {$/;"	f
+ask	tools/backup.sh	/^ask() {$/;"	f
+ask_for_confirmation	tools/backup.sh	/^ask_for_confirmation() {$/;"	f
+ask_for_sudo	tools/backup.sh	/^ask_for_sudo() {$/;"	f
+check	tools/install.py	/^    def check(self):$/;"	m	class:Link
+check	tools/install.py	/^    def check(self):$/;"	m	class:OptionMixin
+check	tools/install.py	/^    def check(self):$/;"	m	class:Scripts
+clean	tools/install.py	/^    def clean(self):$/;"	m	class:Link
+clean	tools/install.py	/^    def clean(self):$/;"	m	class:OptionMixin
+cmd_exists	tools/backup.sh	/^cmd_exists() {$/;"	f
+collect	tools/install.py	/^    def collect(self):$/;"	m	class:Dispatcher
+dispatcher	tools/install.py	/^    dispatcher = Dispatcher(sys.argv)$/;"	v
+echo	tools/install.py	/^    def echo(self):$/;"	m	class:Dispatcher
+echo	tools/install.py	/^    def echo(self, level, msg):$/;"	m	class:Message
+error	tools/install.py	/^    def error(self, msg):$/;"	m	class:Message
+execute	tools/backup.sh	/^execute() {$/;"	f
+exp	tools/install.py	/^exp = Message()$/;"	v
+get_answer	tools/backup.sh	/^get_answer() {$/;"	f
+get_os	scripts/install.sh	/^get_os() {$/;"	f
+get_os	tools/backup.sh	/^get_os() {$/;"	f
+getoption	tools/install.py	/^    def getoption(cls, name):$/;"	m	class:Option
+init	tools/install.py	/^    def init(self):$/;"	m	class:Link
+init	tools/install.py	/^    def init(self):$/;"	m	class:OptionMixin
+inner	tools/install.py	/^    def inner(func):$/;"	f	function:register
+install	tools/install.py	/^    def install(self):$/;"	m	class:Link
+install	tools/install.py	/^    def install(self):$/;"	m	class:OptionMixin
+is_git_repository	tools/backup.sh	/^is_git_repository() {$/;"	f
+loadconfig	tools/install.py	/^    def loadconfig(self):$/;"	m	class:Dispatcher
+main	tools/backup.sh	/^main() {$/;"	f
+metaclass	tools/install.py	/^    class metaclass(meta):$/;"	c	function:with_metaclass
+mkd	tools/backup.sh	/^mkd() {$/;"	f
+ok	tools/install.py	/^    def ok(self, msg):$/;"	m	class:Message
+options	tools/install.py	/^    options = {}$/;"	v	class:Option
+os	tools/install.py	/^import os$/;"	i
+parse	tools/install.py	/^    def parse(self):$/;"	m	class:Dispatcher
+pprint	tools/install.py	/^from pprint import pprint$/;"	i
+print_error	install.sh	/^print_error() {$/;"	f
+print_error	tools/backup.sh	/^print_error() {$/;"	f
+print_help	install.sh	/^print_help() {$/;"	f
+print_info	install.sh	/^print_info() {$/;"	f
+print_info	tools/backup.sh	/^print_info() {$/;"	f
+print_question	install.sh	/^print_question() {$/;"	f
+print_question	tools/backup.sh	/^print_question() {$/;"	f
+print_result	install.sh	/^print_result() {$/;"	f
+print_result	tools/backup.sh	/^print_result() {$/;"	f
+print_success	install.sh	/^print_success() {$/;"	f
+print_success	tools/backup.sh	/^print_success() {$/;"	f
+print_warning	install.sh	/^print_warning() {$/;"	f
+register	tools/install.py	/^def register(target):$/;"	f
+run	tools/install.py	/^    def run(self):$/;"	m	class:Dispatcher
+sys	tools/install.py	/^import sys$/;"	i
+throw	tools/install.py	/^    def throw(self, msg):$/;"	m	class:Dispatcher
+throw	tools/install.py	/^def throw(msg="Not Implemented."):$/;"	f
+warn	tools/install.py	/^    def warn(self, msg):$/;"	m	class:Message
+with_metaclass	tools/install.py	/^def with_metaclass(meta, *bases):$/;"	f
+wraps	tools/install.py	/^from functools import wraps$/;"	i
+yaml	tools/install.py	/^import yaml$/;"	i

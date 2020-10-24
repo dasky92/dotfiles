@@ -9,7 +9,7 @@ alias nowdate='date +"%Y-%m-%d"'
 alias ping="ping -c 5"
 
 # rm dangerous, instead by trash-cli
-unset rm -rf
+unset rm
 alias rm="trash-put"
 
 
