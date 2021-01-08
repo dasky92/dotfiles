@@ -9,7 +9,7 @@ alias nowdate='date +"%Y-%m-%d"'
 alias ping="ping -c 5"
 
 # rm dangerous, instead by trash-cli
-unset rm
+#unset rm
 alias rm="trash-put"
 
 
@@ -114,6 +114,10 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 
+# abbrev: usually spelled error.
+alias docker='docker'
+
+
 # #################################### system udpate ######################################
 
 # distro specific - Debian / Ubuntu and friends #
@@ -121,7 +125,7 @@ alias path='echo -e ${PATH//:/\\n}'
 # alias apt-get="sudo apt-get"
 # alias updatey="sudo apt-get --yes" # update on one command
 # alias update='sudo apt-get update && sudo apt-get upgrade'
-# 
+#
 # ## distrp specifc RHEL/CentOS ##
 # alias update='yum update'
 # alias updatey='yum -y update'

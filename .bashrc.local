@@ -1,3 +1,4 @@
+#! /bin/bash
 # define console colors
 # Reset
 Color_Off='\e[0m'       # Text Reset
@@ -74,10 +75,11 @@ On_IWhite='\e[0;107m'   # White
 
 # define prompt color
 # export PS1='\u@\h:\w\$ ' # default
-export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
+#export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
 
 # alias
-if [ -e "${HOME}/.alias" ]; then
+if [ -e "${HOME}/.alias" ];
+then
     source "${HOME}/.alias"
 fi
 # alias end
