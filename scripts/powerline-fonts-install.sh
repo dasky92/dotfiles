@@ -3,7 +3,7 @@
 # home directory
 cd ~
 # clone
-git clone https://github.com/powerline/fonts.git --depth=1
+git clone https://gitee.com/jiangming_gitee/Powerline-Fonts.git
 # install
 cd fonts
 ./install.sh

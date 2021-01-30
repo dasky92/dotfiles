@@ -1,0 +1,29 @@
+zsh
+# replace greadlink with it in macos
+coreutils
+# build, find, index
+ack
+cmake
+ctags
+fzf
+global
+ripgrep
+bat
+# replace top
+htop
+# replace rm
+trash-cli
+tree
+# replace man
+tldr
+# develop tools
+pyenv
+httpie
+git
+tmux
+# record shell command history as svg
+asciinema
+shellcheck
+go
+node
+python

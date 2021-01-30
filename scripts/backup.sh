@@ -133,10 +133,6 @@ print_success() {
 }
 
 
-
-
-
-
 #
 # actual symlink stuff
 #

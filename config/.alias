@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # time
-alias now='date +"%T"'
-alias nowtime=now
+alias now='date +"%Y-%m-%d %H:%M:%S"'
+alias nowtime='date +"%T"'
 alias nowdate='date +"%Y-%m-%d"'
 
 # ping
@@ -23,10 +23,7 @@ alias mkdir="mkdir -pv"
 alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '
 
 # Shortcuts
-alias g="git"
-alias d="docker"
 alias dc="docker-compose"
-alias t="tmux"
 
 # format json
 alias json="python -m json.tool"
@@ -115,7 +112,7 @@ alias path='echo -e ${PATH//:/\\n}'
 
 
 # abbrev: usually spelled error.
-alias docker='docker'
+# alias docker='docker'
 
 
 # #################################### system udpate ######################################

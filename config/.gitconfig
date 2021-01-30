@@ -1,6 +1,8 @@
-[user]
-	name = dasky92
-	email = daedrath@outlook.com
+# user不设置，为每个项目单独设置user
+# [user]
+# 	name = <name>
+# 	email = <email>
+
 [alias]
     ai = add -i
 	co = commit

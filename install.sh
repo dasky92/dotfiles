@@ -63,19 +63,22 @@ fi
 
 cd $dotfiles_directory
 
+dotfiles_config_path="${dotfiles_directory}/config"
+
 
 # search only dotfiles without the own used files
-files_to_home=$(ls -A | grep -v '^\.gitmodules\|^\.gitignore\|^tools\|^scripts\|^LICENSE\|^README.md\|^install\.sh\|^\.git$')
+#files_to_home=$(ls -A | grep -v '^\.gitmodules\|^\.gitignore\|^tools\|^scripts\|^LICENSE\|^README.md\|^install\.sh\|^\.git$')
+files_to_home=$(ls -A ${dotfiles_config_path})
 
 for file in $files_to_home; do
-    if $is_uninstall; then
+    if ${is_uninstall}; then
         if [ -L ~/$file ]; then
             rm ~/$file && print_success "Removed '$file'"
         fi
     elif [ -e ~/$file ]; then
         print_warning "File '$file' already exists, cannot create a link to it"
     else
-        ln -s $dotfiles_directory/$file ~/$file
+        ln -s $dotfiles_config_path/$file ~/$file
         print_success "Added '$file'"
     fi
 done
@@ -93,7 +96,7 @@ else
         echo $bashrc_include >> $bashrc
     fi
 
-    # if test "$(type -p git)" == '' ; then 
+    # if test "$(type -p git)" == '' ; then
     #     echo 'Git not available, cannot install sub repositories properly.'
     # else
     #     git submodule update --init --recursive
