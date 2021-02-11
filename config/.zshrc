@@ -41,10 +41,10 @@ SPACESHIP_DOCKER_SHOW=false
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -109,3 +109,6 @@ if [ -e "${HOME}/.alias" ]; then
     source "${HOME}/.alias"
 fi
 # alias END
+
+# path autocompletation
+eval "$(lua ~/z.lua --init zsh)"
