@@ -10,7 +10,7 @@ alias ping="ping -c 5"
 
 # rm dangerous, instead by trash-cli
 #unset rm
-alias rm="trash-put"
+#alias rm="trash-put"
 
 
 # Easier navigation: .., ..., ....

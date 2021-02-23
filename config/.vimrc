@@ -272,7 +272,7 @@ nnoremap <leader>r :call PRUN()<CR>
 
 " {{{ ColorScheme
 
-colorscheme hemisu
+colorscheme desert
 if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
     if !has('gui_running')
         let &t_Co = 256

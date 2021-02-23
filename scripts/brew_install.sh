@@ -16,7 +16,7 @@ do
 done
 
 
-cat "./brew_cask_app" | while -r read line
+cat "./brew_cask_app" | while read -r read line
 do
   if [[ "$line" != ^#* ]]; then
     brew cask install "$line"
