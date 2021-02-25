@@ -58,7 +58,7 @@ alias grep='grep --color=auto'
 #alias egrep='egrep --color=auto'
 
 # Enable aliases to be sudo’ed
-alias sudo='sudo '
+# alias sudo='sudo '
 
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
