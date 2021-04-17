@@ -1,8 +1,7 @@
 # user不设置，为每个项目单独设置user
-# [user]
-# 	name = <name>
-# 	email = <email>
-
+[user]
+ 	name = wanchao
+ 	email = dasky92@163.com
 [alias]
     ai = add -i
 	co = commit

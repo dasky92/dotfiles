@@ -44,7 +44,7 @@ SPACESHIP_DOCKER_SHOW=false
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -111,4 +111,5 @@ fi
 # alias END
 
 # path autocompletation
-eval "$(lua ~/z.lua --init zsh)"
+#eval "$(lua ~/z.lua --init zsh)"
+#export _ZL_CM="j"

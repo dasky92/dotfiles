@@ -1,0 +1,41 @@
+" global settings "
+let mapleader = ","
+let localleader = ","
+
+inoremap kj <Esc>
+
+set clipboard=unnamedplus
+set clipboard=+ideaput
+
+" tab action "
+map tn :action NextTab<CR>
+map tp :action PreviousTab<CR>
+
+" common editor settings "
+" can find actions by `:actionlist pattern` in command-mode"
+map ,xm :action SearchEverywhere<CR>
+map ,xs :action SaveAll<CR>
+map ,qq :action FindInPath<CR>
+map ,ss :action Find<CR>
+map ,xk :action CloseEditor<CR>
+map ,gg :action Git.Menu<CR>
+
+map ,kk :action GotoFile<CR>
+map ,rr :action RecentFiles<CR>
+map ,ii :action GotoSymbol<CR>
+
+map ,aa :action $Copy<CR>
+map ,ci :action CommentByLineComment<CR>
+map ,fp :action CopyPaths<CR>
+map ,zz :action PasteSimple<CR>
+map ,yy :action PasteMultiple<CR>
+
+" window manager "
+map ,x2 :action VimWindowSplitHorizontal<CR>
+map ,x3 :action VimWindowSplitVeritical<CR>
+
+" terminal manager "
+map ,xz :action ActivateTerminalToolWindow<CR>
+map <C-]> :action GotoImplementation<CR>
+
+norevmap ,x0 :action :q<CR>
