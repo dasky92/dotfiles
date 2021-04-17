@@ -19,8 +19,10 @@ map ,qq :action FindInPath<CR>
 map ,ss :action Find<CR>
 map ,xk :action CloseEditor<CR>
 map ,gg :action Git.Menu<CR>
+map ,ff :action GotoFile<CR>
+map ,fm :action FileMenu<CR>
 
-map ,kk :action GotoFile<CR>
+map ,kk :action ToggleZenMode<CR>
 map ,rr :action RecentFiles<CR>
 map ,ii :action GotoSymbol<CR>
 
