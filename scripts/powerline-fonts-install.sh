@@ -1,9 +1,9 @@
-#! /usr/bin/sh
+#! /bin/sh
 
 # home directory
-cd ~
+cd ${HOME}
 # clone
-git clone https://gitee.com/jiangming_gitee/Powerline-Fonts.git
+git clone https://gitee.com/jiangming_gitee/Powerline-Fonts.git fonts
 # install
 cd fonts
 ./install.sh
