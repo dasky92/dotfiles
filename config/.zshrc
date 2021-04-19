@@ -44,10 +44,10 @@ SPACESHIP_PROMPT_DEFAULT_PREFIX=""
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -118,3 +118,7 @@ SPACESHIP_PYENV_SHOW="false"
 
 # kubectl context
 SPACESHIP_KUBECONTEXT_SHOW="true"
+# path autocompletation
+#eval "$(lua ~/z.lua --init zsh)"
+#export _ZL_CM="j"
+

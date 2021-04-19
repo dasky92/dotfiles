@@ -83,3 +83,8 @@ then
     source "${HOME}/.alias"
 fi
 # alias end
+
+# z.lua start
+eval "$(lua ~/z.lua --init bash)"
+export _ZL_CMD="j"
+# z.lua end
