@@ -31,6 +31,9 @@ SPACESHIP_DOCKER_SHOW=false
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
 
+# Default prefix for prompt sections
+SPACESHIP_PROMPT_DEFAULT_PREFIX=""
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
@@ -109,3 +112,9 @@ if [ -e "${HOME}/.alias" ]; then
     source "${HOME}/.alias"
 fi
 # alias END
+
+# Disable pyenv flag
+SPACESHIP_PYENV_SHOW="false"
+
+# kubectl context
+SPACESHIP_KUBECONTEXT_SHOW="true"
