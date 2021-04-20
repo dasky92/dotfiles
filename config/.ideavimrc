@@ -3,9 +3,22 @@ let mapleader = ","
 let localleader = ","
 
 inoremap kj <Esc>
+set clipboard+=unnamedplus
+set clipboard+=ideaput
 
-set clipboard=unnamedplus
-set clipboard=+ideaput
+" default settings "
+set laststatus=2
+set surround
+set commentary
+set wildmenu
+set showmatch
+set timeoutlen=500
+
+set incrsearch
+set hlsearch
+set ignorecase
+set showcmd
+set hidden
 
 " tab action "
 map tn :action NextTab<CR>
@@ -21,6 +34,7 @@ map ,xk :action CloseEditor<CR>
 map ,gg :action Git.Menu<CR>
 map ,ff :action GotoFile<CR>
 map ,fm :action FileMenu<CR>
+map ,uu :action FindUsages<CR>
 
 map ,kk :action ToggleZenMode<CR>
 map ,rr :action RecentFiles<CR>
@@ -31,6 +45,7 @@ map ,ci :action CommentByLineComment<CR>
 map ,fp :action CopyPaths<CR>
 map ,zz :action PasteSimple<CR>
 map ,yy :action PasteMultiple<CR>
+map ,rf :action RefactoringMenu
 
 " window manager "
 map ,x2 :action VimWindowSplitHorizontal<CR>
@@ -40,4 +55,4 @@ map ,x3 :action VimWindowSplitVeritical<CR>
 map ,xz :action ActivateTerminalToolWindow<CR>
 map <C-]> :action GotoImplementation<CR>
 
-norevmap ,x0 :action :q<CR>
+norevmap ,x0 :q<CR>
