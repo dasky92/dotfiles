@@ -26,7 +26,7 @@ SPACESHIP_DOCKER_SHOW=false
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -118,7 +118,16 @@ SPACESHIP_PYENV_SHOW="false"
 
 # kubectl context
 SPACESHIP_KUBECONTEXT_SHOW="true"
-# path autocompletation
-#eval "$(lua ~/z.lua --init zsh)"
-#export _ZL_CM="j"
 
+if [ -e "${HOME}/z.lua" ];
+then
+    eval "$(lua ${HOME}/z.lua --init zsh)"
+fi
+export _ZL_CM="j"
+
+
+# custom compay shell
+if [ -e "${HOME}/.cy.local" ];
+then
+    source "${HOME}/.cy.local"
+fi

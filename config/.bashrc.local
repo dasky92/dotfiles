@@ -85,6 +85,14 @@ fi
 # alias end
 
 # z.lua start
-eval "$(lua ~/z.lua --init bash)"
+eval "$(lua ${HOME}/z.lua --init bash)"
 export _ZL_CMD="j"
 # z.lua end
+
+
+# custom compay shell
+if [ -e "${HOME}/.cy.local" ];
+then
+    source "${HOME}/.cy.local"
+fi
+

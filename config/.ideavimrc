@@ -34,7 +34,6 @@ map ,xk :action CloseEditor<CR>
 map ,gg :action Git.Menu<CR>
 map ,ff :action GotoFile<CR>
 map ,fm :action FileMenu<CR>
-map ,uu :action FindUsages<CR>
 
 map ,kk :action ToggleZenMode<CR>
 map ,rr :action RecentFiles<CR>
@@ -56,3 +55,6 @@ map ,xz :action ActivateTerminalToolWindow<CR>
 map <C-]> :action GotoImplementation<CR>
 
 norevmap ,x0 :q<CR>
+
+" more instruction"
+" gd: gotodefinition, but when you are at function definition, gd: findusage"

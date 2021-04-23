@@ -1,0 +1,7 @@
+alias ucloud="ssh chunyu.uhasadmin.com -p22222"
+
+
+# activate cy medweb environment
+alias menv="cd ${HOME}/workspace/medweb && source ./scripts/env_activate.sh && cd ${HOME}"
+
+alias work="cd ${HOME}/workspace/medweb"
