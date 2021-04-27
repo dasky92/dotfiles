@@ -22,6 +22,12 @@ alias ....="cd ../../.."
 alias mkdir="mkdir -pv"
 alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '
 
+# git
+alias gst="git status"
+alias gss="git stash"
+alias gl="git pull"
+alias gp="git push"
+
 # Shortcuts
 alias dc="docker-compose"
 
