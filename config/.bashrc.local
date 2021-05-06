@@ -93,6 +93,12 @@ eval "$(lua ${HOME}/z.lua --init bash)"
 export _ZL_CMD="j"
 # z.lua end
 
+# ###############################
+if [ -e "${HOME}/.emacs.d/bin" ];
+then
+   export PATH=${HOME}/.emacs.d/bin:$PATH
+ 
+
 
 # ###############################
 # custom compay shell

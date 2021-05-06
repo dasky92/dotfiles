@@ -3,7 +3,7 @@ let mapleader = ","
 let localleader = ","
 
 inoremap kj <Esc>
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 set clipboard+=ideaput
 
 " default settings "
