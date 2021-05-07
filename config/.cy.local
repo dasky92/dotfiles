@@ -4,4 +4,7 @@ alias ucloud="ssh chunyu.uhasadmin.com -p22222"
 # activate cy medweb environment
 alias menv="cd ${HOME}/workspace/medweb && source ./scripts/env_activate.sh && cd ${HOME}"
 
+# activate cy medweb ipython
+alias menvi="cd ${HOME}/workspace/medweb && source ./scripts/env_activate.sh && python manage.py shell"
+
 alias work="cd ${HOME}/workspace/medweb"
