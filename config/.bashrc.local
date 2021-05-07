@@ -77,6 +77,8 @@ On_IWhite='\e[0;107m'   # White
 # export PS1='\u@\h:\w\$ ' # default
 #export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
 
+
+# ###############################
 # alias
 if [ -e "${HOME}/.alias" ];
 then
@@ -84,12 +86,21 @@ then
 fi
 # alias end
 
+
+# ###############################
 # z.lua start
 eval "$(lua ${HOME}/z.lua --init bash)"
 export _ZL_CMD="j"
 # z.lua end
 
+# ###############################
+if [ -e "${HOME}/.emacs.d/bin" ];
+then
+   export PATH=${HOME}/.emacs.d/bin:$PATH
+ 
 
+
+# ###############################
 # custom compay shell
 if [ -e "${HOME}/.cy.local" ];
 then

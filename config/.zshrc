@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 # off: docker show
 SPACESHIP_DOCKER_SHOW=false
 
@@ -123,7 +123,7 @@ if [ -e "${HOME}/z.lua" ];
 then
     eval "$(lua ${HOME}/z.lua --init zsh)"
 fi
-export _ZL_CM="j"
+export _ZL_CMD="j"
 
 
 # custom compay shell
