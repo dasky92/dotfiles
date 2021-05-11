@@ -77,6 +77,8 @@ On_IWhite='\e[0;107m'   # White
 # export PS1='\u@\h:\w\$ ' # default
 #export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
 
+# 256colors
+TERM=xterm-256color emacs -nw
 
 # ###############################
 # alias
