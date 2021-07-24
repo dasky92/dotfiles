@@ -78,12 +78,11 @@ On_IWhite='\e[0;107m'   # White
 #export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
 
 # 256colors
-TERM=xterm-256color emacs -nw
+# TERM=xterm-256color emacs -nw
 
 # ###############################
 # alias
-if [ -e "${HOME}/.alias" ];
-then
+if [ -e "${HOME}/.alias" ]; then
     source "${HOME}/.alias"
 fi
 # alias end
@@ -91,21 +90,22 @@ fi
 
 # ###############################
 # z.lua start
-eval "$(lua ${HOME}/z.lua --init bash)"
+if [ -e "${HOME}/z.lua" ]; then
+    eval "$(lua ${HOME}/z.lua --init zsh)"
+fi
 export _ZL_CMD="j"
 # z.lua end
 
-# ###############################
-if [ -e "${HOME}/.emacs.d/bin" ];
-then
-   export PATH=${HOME}/.emacs.d/bin:$PATH
- 
-
 
 # ###############################
+# GO env start
+export GOPATH="${HOME}/go"
+export GOPROXY="https://goproxy.cn"
+export PATH="$PATH:$GOPATH/bin"
+# GO env end
+
 # custom compay shell
-if [ -e "${HOME}/.cy.local" ];
-then
-    source "${HOME}/.cy.local"
+if [ -e "${HOME}/.com.local" ]; then
+    source "${HOME}/.com.local"
 fi
 

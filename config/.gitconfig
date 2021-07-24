@@ -32,3 +32,5 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+# [remote "origin"]
+# proxy = 127.0.0.1:7890

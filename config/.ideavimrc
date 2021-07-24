@@ -1,6 +1,6 @@
 " global settings "
-let mapleader = ","
-let localleader = ","
+let mapleader = " "
+let localleader = " "
 
 inoremap kj <Esc>
 set clipboard+=unnamed
@@ -26,35 +26,51 @@ map tp :action PreviousTab<CR>
 
 " common editor settings "
 " can find actions by `:actionlist pattern` in command-mode"
-map ,xm :action SearchEverywhere<CR>
-map ,xs :action SaveAll<CR>
-map ,qq :action FindInPath<CR>
+map <leader>xm :action SearchEverywhere<CR>
+map <leader>S :action SaveAll<CR>
+map <leader>qq :action FindInPath<CR>
 map ,ss :action Find<CR>
 map ,xk :action CloseEditor<CR>
-map ,gg :action Git.Menu<CR>
-map ,ff :action GotoFile<CR>
-map ,fm :action FileMenu<CR>
+map <leader>g :action Git.Menu<CR>
+map <leader>ff :action GotoFile<CR>
+map <leader>m :action FileMenu<CR>
+map <leader>pp :action PasteMultiple<CR>
 
-map ,kk :action ToggleZenMode<CR>
-map ,rr :action RecentFiles<CR>
-map ,ii :action GotoSymbol<CR>
+map <leader>kk :action ToggleZenMode<CR>
+map <leader>fr :action RecentFiles<CR>
+map <leader>ii :action GotoSymbol<CR>
 
-map ,aa :action $Copy<CR>
-map ,ci :action CommentByLineComment<CR>
-map ,fp :action CopyPaths<CR>
-map ,zz :action PasteSimple<CR>
-map ,yy :action PasteMultiple<CR>
-map ,rf :action RefactoringMenu
+map <leader>aa :action $Copy<CR>
+map <leader>ci :action CommentByLineComment<CR>
+map <leader>fp :action CopyPaths<CR>
+map <leader>zz :action PasteSimple<CR>
+map <leader>yy :action PasteMultiple<CR>
+map <leader>rf :action RefactoringMenu
 
 " window manager "
-map ,x2 :action VimWindowSplitHorizontal<CR>
-map ,x3 :action VimWindowSplitVeritical<CR>
+map <leader>x2 :action VimWindowSplitHorizontal<CR>
+map <leader>x3 :action VimWindowSplitVeritical<CR>
 
 " terminal manager "
-map ,xz :action ActivateTerminalToolWindow<CR>
+" map ,xz :action ActivateTerminalToolWindow<CR>
 map <C-]> :action GotoImplementation<CR>
 
-norevmap ,x0 :q<CR>
+" norevmap ,x0 :q<CR>
+map ; :
 
 " more instruction"
 " gd: gotodefinition, but when you are at function definition, gd: findusage"
+
+" insert-mode move
+inoremap <c-f> <right>
+inoremap <c-b> <left>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+
+" ex-mode move
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <c-n> <down>
+cnoremap <c-p> <up

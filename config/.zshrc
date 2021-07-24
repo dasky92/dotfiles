@@ -107,11 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# alias
-if [ -e "${HOME}/.alias" ]; then
-    source "${HOME}/.alias"
-fi
-# alias END
 
 # Disable pyenv flag
 SPACESHIP_PYENV_SHOW="false"
@@ -119,15 +114,8 @@ SPACESHIP_PYENV_SHOW="false"
 # kubectl context
 SPACESHIP_KUBECONTEXT_SHOW="true"
 
-if [ -e "${HOME}/z.lua" ];
-then
-    eval "$(lua ${HOME}/z.lua --init zsh)"
-fi
-export _ZL_CMD="j"
 
-
-# custom compay shell
-if [ -e "${HOME}/.cy.local" ];
-then
-    source "${HOME}/.cy.local"
+if [ -e "${HOME}/.bashrc.local" ]; then
+    . "${HOME}/.bashrc.local"
 fi
+
