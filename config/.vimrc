@@ -153,8 +153,21 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" insert-mode move
+inoremap <c-f> <right>
+inoremap <c-b> <left>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+
+" ex-mode move
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <c-n> <down>
+cnoremap <c-p> <up
 " jj is escape, <ESC> is very far away. jk is a much better.
-inoremap jj <ESC>
+inoremap kj <ESC>
 
 " move to beginning/end of line
 " 0 == ^

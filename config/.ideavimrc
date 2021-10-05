@@ -29,8 +29,8 @@ map tp :action PreviousTab<CR>
 map <leader>xm :action SearchEverywhere<CR>
 map <leader>S :action SaveAll<CR>
 map <leader>qq :action FindInPath<CR>
-map ,ss :action Find<CR>
-map ,xk :action CloseEditor<CR>
+map <leader>ss :action Find<CR>
+" map <leader>xk :action CloseEditor<CR>
 map <leader>g :action Git.Menu<CR>
 map <leader>ff :action GotoFile<CR>
 map <leader>m :action FileMenu<CR>

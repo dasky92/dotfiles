@@ -77,9 +77,6 @@ On_IWhite='\e[0;107m'   # White
 # export PS1='\u@\h:\w\$ ' # default
 #export PS1="\[$Cyan\]\u\[$Green\]@\h\[$Color_Off\]:\w\$ "
 
-# 256colors
-# TERM=xterm-256color emacs -nw
-
 # ###############################
 # alias
 if [ -e "${HOME}/.alias" ]; then
@@ -93,7 +90,7 @@ fi
 if [ -e "${HOME}/z.lua" ]; then
     eval "$(lua ${HOME}/z.lua --init zsh)"
 fi
-export _ZL_CMD="j"
+export _ZL_CMD="z"
 # z.lua end
 
 
@@ -102,10 +99,21 @@ export _ZL_CMD="j"
 export GOPATH="${HOME}/go"
 export GOPROXY="https://goproxy.cn"
 export PATH="$PATH:$GOPATH/bin"
+export GO111MODULE="on"
 # GO env end
 
 # custom compay shell
 if [ -e "${HOME}/.com.local" ]; then
     source "${HOME}/.com.local"
 fi
+
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -I/usr/local/opt/openssl@1.1/include"
+ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# ranger
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
+# vscode add into path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
