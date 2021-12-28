@@ -21,37 +21,44 @@ set showcmd
 set hidden
 
 " tab action "
-map tn :action NextTab<CR>
-map tp :action PreviousTab<CR>
+map ]t :action NextTab<CR>
+map [t :action PreviousTab<CR>
 
 " common editor settings "
 " can find actions by `:actionlist pattern` in command-mode"
-map <leader>xm :action SearchEverywhere<CR>
-map <leader>S :action SaveAll<CR>
-map <leader>qq :action FindInPath<CR>
-map <leader>ss :action Find<CR>
+nnoremap <localleader>r :action Run<CR>
+nnoremap <localleader>d :action Debug<CR>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
+map <leader>x  :action SearchEverywhere<CR>
+map <leader>S  :action SaveAll<CR>
+map <leader>s  :action FindInPath<CR>
+map <leader>l :action Find<CR>
 " map <leader>xk :action CloseEditor<CR>
-map <leader>g :action Git.Menu<CR>
-map <leader>ff :action GotoFile<CR>
-map <leader>m :action FileMenu<CR>
-map <leader>pp :action PasteMultiple<CR>
+map <leader>g  :action Git.Menu<CR>
+map <leader>f  :action GotoFile<CR>
+map <leader>m  :action FileMenu<CR>
+" map <leader>pp :action PasteMultiple<CR>
 
-map <leader>kk :action ToggleZenMode<CR>
-map <leader>fr :action RecentFiles<CR>
-map <leader>ii :action GotoSymbol<CR>
+map <leader>k  :action ToggleZenMode<CR>
+map <leader>r  :action RecentFiles<CR>
+map <leader>i  :action GotoSymbol<CR>
 
-map <leader>aa :action $Copy<CR>
-map <leader>ci :action CommentByLineComment<CR>
-map <leader>fp :action CopyPaths<CR>
-map <leader>zz :action PasteSimple<CR>
-map <leader>yy :action PasteMultiple<CR>
-map <leader>rf :action RefactoringMenu
+map <leader>a  :action $Copy<CR>
+map <leader>c  :action CommentByLineComment<CR>
+map <leader>p  :action CopyPaths<CR>
+map <leader>z  :action PasteSimple<CR>
+map <leader>y  :action PasteMultiple<CR>
+" map <leader>r  :action RefactoringMenu
 
 " window manager "
-map <leader>x2 :action VimWindowSplitHorizontal<CR>
-map <leader>x3 :action VimWindowSplitVeritical<CR>
+map <leader>w2 :action SplitVertically<CR>
+map <leader>w3 :action SplitHorizontally<CR>
 
-" terminal manager "
+" terminal manager
 " map ,xz :action ActivateTerminalToolWindow<CR>
 map <C-]> :action GotoImplementation<CR>
 

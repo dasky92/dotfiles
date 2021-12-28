@@ -118,6 +118,12 @@ alias v="vim"
 alias vi="nvim"
 alias e="emacs -nw"
 alias dc="docker-compose"
+# the same as jetbrains, neovim
+alias gg="lazygit"
+
+
+# abbrev
+alias falsk="flask"
 
 # #################################### system udpate ######################################
 

@@ -89,8 +89,8 @@ fi
 # z.lua start
 if [ -e "${HOME}/z.lua" ]; then
     eval "$(lua ${HOME}/z.lua --init zsh)"
+    export _ZL_CMD="j"
 fi
-export _ZL_CMD="z"
 # z.lua end
 
 
@@ -107,13 +107,25 @@ if [ -e "${HOME}/.com.local" ]; then
     source "${HOME}/.com.local"
 fi
 
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -I/usr/local/opt/openssl@1.1/include"
- export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -I/usr/local/opt/openssl@1.1/include"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
+# emacs_doom="~/.emacs.d/bin"
+# if [[ -z $emacs_doom ]]; then
+#     export PATH="$PATH:$emacs_doom"
 
 # vscode add into path
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# node bin
+if [[ -e '~/node_modules/.bin' ]]; then
+    export PATH="$PATH:~/node_modules/.bin"
+fi
 

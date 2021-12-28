@@ -119,4 +119,9 @@ if [ -e "${HOME}/.bashrc.local" ]; then
     . "${HOME}/.bashrc.local"
 fi
 
+if [ -e "${HOME}/z.lua" ]; then
+    eval "$(lua ${HOME}/z.lua --init zsh)"
+    export _ZL_CMD="j"
+fi
+
 export PATH="/usr/local/sbin:$PATH"
