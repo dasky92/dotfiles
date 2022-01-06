@@ -7,3 +7,5 @@ fonts/
 backup/
 ### other ###
 .DS_Store
+### ctags file ###
+tags

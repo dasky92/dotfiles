@@ -2,7 +2,7 @@
 # home dir
 cd ${HOME}
 # install oh-my-zsh
-china_ohmyzsh="https://gitee.com/shrekuu/ohmyzsh-ohmyzsh.git"
+china_ohmyzsh="https://gitee.com/shrekuu/ohmyzsh.git"
 ohmyzsh="git://github.com/robbyrussell/oh-my-zsh.git"
 git clone "${china_ohmyzsh}" ~/.oh-my-zsh
 # change default shell: zsh
