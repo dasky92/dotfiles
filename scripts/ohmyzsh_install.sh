@@ -18,3 +18,6 @@ git clone https://gitee.com/synchub/spaceship-prompt.git "${ZSH_CUSTOM:-~/.oh-my
 
 # link
 ln -s "${ZSH_CUSTOM}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship.zsh-theme"
+
+# powerlevel10k theme
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
