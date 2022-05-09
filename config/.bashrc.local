@@ -129,3 +129,6 @@ if [[ -e '~/node_modules/.bin' ]]; then
     export PATH="$PATH:~/node_modules/.bin"
 fi
 
+# autoenv for python virtualenv manager
+source `which activate.sh`
+

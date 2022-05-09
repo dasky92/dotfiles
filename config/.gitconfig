@@ -36,3 +36,7 @@
 # proxy = 127.0.0.1:7890
 [init]
 	defaultBranch = main
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false

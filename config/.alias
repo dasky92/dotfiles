@@ -43,12 +43,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # git
-alias gst="git status"
-alias gss="git stash"
-alias gpl="git pull"
-alias gpu="git push"
-alias gcm="git commit -m"
-alias gca="git commit --amend"
+alias gs="git status"
+alias gS="git stash"
+alias gp="git pull"
+alias gP="git push"
+alias gc="git commit"
+alias gm="git commit -m"
+alias ga="git commit --amend"
 
 
 # format json
@@ -120,10 +121,12 @@ alias e="emacs -nw"
 alias dc="docker-compose"
 # the same as jetbrains, neovim
 alias gg="lazygit"
+alias dd="lazydocker"
 
 
 # abbrev
 alias falsk="flask"
+alias vi="~/workspace/opt/nvim/bin/nvim"
 
 # #################################### system udpate ######################################
 

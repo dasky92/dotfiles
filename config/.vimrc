@@ -172,11 +172,11 @@ inoremap kj <ESC>
 " move to beginning/end of line
 " 0 == ^
 "nnoremap B ^
-nnoremap E $
+"nnoremap E $
 
 " $/^ doesn't do anything
-nnoremap $ <nop>
-nnoremap ^ <nop>
+"nnoremap $ <nop>
+"nnoremap ^ <nop>
 nnoremap zz :q!<CR>
 " OFF, because it will trigger `REPLACE MODEL`
 "nnoremap <leader>s :w!<CR>
