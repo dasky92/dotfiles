@@ -124,9 +124,8 @@ SPACESHIP_PYENV_SHOW="false"
 SPACESHIP_KUBECONTEXT_SHOW="true"
 
 
-if [ -e "${HOME}/.bashrc.local" ]; then
-    . "${HOME}/.bashrc.local"
-fi
+[[ ! -f ~/.bashrc.local ]] || source ~/.bashrc.local
+[[ ! -f ~/.alias ]] || source ~/.alias
 
 if [ -e "${HOME}/z.lua" ]; then
     eval "$(lua ${HOME}/z.lua --init zsh)"

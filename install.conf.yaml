@@ -1,0 +1,32 @@
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.vimrc: config/vimrc
+    ~/.ideavimrc: config/ideavimrc
+    ~/.bashrc.local: config/bashrc.local
+    ~/.alias: config/alias
+    ~/.gitconfig: config/gitconfig
+    ~/.gitmessage: config/gitmessage
+    ~/.inputrc: config/inputrc
+    ~/z.lua: config/z.lua
+    ~/.zshrc: config/zshrc
+    ~/.p10k.zsh: config/p10k.zsh
+    ~/.tmux.conf: config/tmux.conf
+    ~/.ctags: config/ctags
+    ~/.emacs.d: emacs-dae
+    ~/tox.ini: config/tox.ini
+    ##### directory #####
+    ~/.config/nvim: nvim.lua
+    ~/.pip: pip
+
+- create:
+    - ~/.pip
+    - ~/.config
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

@@ -116,9 +116,6 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
-# emacs_doom="~/.emacs.d/bin"
-# if [[ -z $emacs_doom ]]; then
-#     export PATH="$PATH:$emacs_doom"
 
 # vscode add into path
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

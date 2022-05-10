@@ -1,0 +1,12 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "nvim.lua"]
+	path = nvim.lua
+	url = git@github.com:dasky92/nvim.lua.git
+    ignore = dirty
+[submodule "emacs-dae"]
+	path = emacs-dae
+	url = git@github.com:dasky92/emacs-dae.git
+	ignore = dirty
