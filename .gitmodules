@@ -5,8 +5,8 @@
 [submodule "nvim.lua"]
 	path = nvim.lua
 	url = git@github.com:dasky92/nvim.lua.git
-    ignore = dirty
+    ignore = all
 [submodule "emacs-dae"]
 	path = emacs-dae
 	url = git@github.com:dasky92/emacs-dae.git
-	ignore = dirty
+	ignore = all
