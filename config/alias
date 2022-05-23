@@ -115,8 +115,8 @@ alias path='echo -e ${PATH//:/\\n}'
 # #################################### command-line shortcut ######################################
 
 alias ra="ranger"
-alias vm="vim"
-alias vn="~/workspace/opt/nvim/bin/nvim"
+alias vi="vim"
+alias nv="~/workspace/opt/nvim/bin/nvim"
 alias e="emacs -nw"
 alias dc="docker-compose"
 # the same as jetbrains, neovim

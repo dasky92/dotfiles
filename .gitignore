@@ -9,3 +9,5 @@ backup/
 .DS_Store
 ### ctags file ###
 tags
+### neovim ###
+nvim.lua/
