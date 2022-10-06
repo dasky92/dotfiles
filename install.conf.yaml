@@ -8,7 +8,7 @@
 - link:
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
-    ~/.bashrc.local: config/bashrc.local
+    ~/.bashrc.com: config/bashrc.com
     ~/.alias: config/alias
     ~/.gitconfig: config/gitconfig
     ~/.gitmessage: config/gitmessage
@@ -30,3 +30,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [echo 'You should add .bashrc.com in .bashrc when others all executed successfully', >>> TODO]
