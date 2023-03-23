@@ -1,0 +1,24 @@
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.vimrc: config/vimrc
+    ~/.bashrc.local: config/bashrc.local
+    ~/.alias: config/alias
+    ~/.gitconfig: config/gitconfig
+    ~/.gitmessage: config/gitmessage
+    ~/.inputrc: config/inputrc
+    ~/tox.ini: config/tox.ini
+    ~/z.lua: config/z.lua
+    ~/.pip: pip
+
+- create:
+    - ~/.pip
+    - ~/.config
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
