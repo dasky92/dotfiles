@@ -1,0 +1,269 @@
+#cloud-config
+
+# Add primary apt repositories
+#
+# To add 3rd party repositories, see cloud-config-apt.txt or the
+# Additional apt configuration and repositories section.
+#
+#
+# Default: auto select based on cloud metadata
+#  in ec2, the default is <region>.archive.ubuntu.com
+# apt:
+#   primary:
+#     - arches [default]
+#       uri:
+#     use the provided mirror
+#       search:
+#     search the list for the first mirror.
+#     this is currently very limited, only verifying that
+#     the mirror is dns resolvable or an IP address
+#
+# if neither mirror is set (the default)
+# then use the mirror provided by the DataSource found.
+# In EC2, that means using <region>.ec2.archive.ubuntu.com
+#
+# if no mirror is provided by the DataSource, but 'search_dns' is
+# true, then search for dns names '<distro>-mirror' in each of
+# - fqdn of this host per cloud metadata
+# - localdomain
+# - no domain (which would search domains listed in /etc/resolv.conf)
+# If there is a dns entry for <distro>-mirror, then it is assumed that there
+# is a distro mirror at http://<distro>-mirror.<domain>/<distro>
+#
+# That gives the cloud provider the opportunity to set mirrors of a distro
+# up and expose them only by creating dns entries.
+#
+# if none of that is found, then the default distro mirror is used
+apt:
+  primary:
+    - arches: [default]
+      uri: https://mirrors.tuna.tsinghua.edu.cn/ubuntu/
+
+# Update apt database on first boot (run 'apt-get update').
+# Note, if packages are given, or package_upgrade is true, then
+# update will be done independent of this setting.
+#
+# Default: false
+package_update: true
+
+# Upgrade the instance on first boot
+#
+# Default: false
+package_upgrade: true
+
+# Add groups to the system
+#
+# The following example adds the ubuntu group with members 'root' and 'sys'
+# and the empty group cloud-users.
+groups:
+  - admingroup: [root,sys]
+  - cloud-users
+
+# Add users to the system. Users are added after groups are added.
+#
+# Note: Most of these configuration options will not be honored if the user
+#       already exists. Following options are the exceptions and they are
+#       applicable on already-existing users:
+#       - 'plain_text_passwd', 'hashed_passwd', 'lock_passwd', 'sudo',
+#         'ssh_authorized_keys', 'ssh_redirect_user'.
+# TODO: write by your need
+users:
+  - default
+  - name: ubuntu
+    gecos: Ubuntu User 
+    primary_group: root
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    selinux_user: staff_u
+    lock_passwd: false
+    plain_text_passwd: ubuntu 
+    shell: /bin/bash
+# Valid Values:
+#   name: The user's login name
+#   expiredate: Date on which the user's account will be disabled.
+#   gecos: The user name's real name, i.e. "Bob B. Smith"
+#   homedir: Optional. Set to the local path you want to use. Defaults to
+#           /home/<username>
+#   primary_group: define the primary group. Defaults to a new group created
+#           named after the user.
+#   groups:  Optional. Additional groups to add the user to. Defaults to none
+#   selinux_user:  Optional. The SELinux user for the user's login, such as
+#           "staff_u". When this is omitted the system will select the default
+#           SELinux user.
+#   lock_passwd: Defaults to true. Lock the password to disable password login
+#   inactive: Number of days after password expires until account is disabled
+#   passwd: The hash -- not the password itself -- of the password you want
+#           to use for this user. You can generate a hash via:
+#               mkpasswd --method=SHA-512 --rounds=4096
+#           (the above command would create from stdin an SHA-512 password hash
+#           with 4096 salt rounds)
+#
+#           Please note: while the use of a hashed password is better than
+#               plain text, the use of this feature is not ideal. Also,
+#               using a high number of salting rounds will help, but it should
+#               not be relied upon.
+#
+#               To highlight this risk, running John the Ripper against the
+#               example hash above, with a readily available wordlist, revealed
+#               the true password in 12 seconds on a i7-2620QM.
+#
+#               In other words, this feature is a potential security risk and is
+#               provided for your convenience only. If you do not fully trust the
+#               medium over which your cloud-config will be transmitted, then you
+#               should not use this feature.
+#
+#   no_create_home: When set to true, do not create home directory.
+#   no_user_group: When set to true, do not create a group named after the user.
+#   no_log_init: When set to true, do not initialize lastlog and faillog database.
+#   ssh_import_id: Optional. Import SSH ids
+#   ssh_authorized_keys: Optional. [list] Add keys to user's authorized keys file
+#                        An error will be raised if no_create_home or system is
+#                        also set.
+#   ssh_redirect_user: Optional. [bool] Set true to block ssh logins for cloud
+#       ssh public keys and emit a message redirecting logins to
+#       use <default_username> instead. This option only disables cloud
+#       provided public-keys. An error will be raised if ssh_authorized_keys
+#       or ssh_import_id is provided for the same user.
+#
+#   sudo: Defaults to none. Accepts a sudo rule string, a list of sudo rule
+#         strings or False to explicitly deny sudo usage. Examples:
+#
+#         Allow a user unrestricted sudo access.
+#             sudo:  ALL=(ALL) NOPASSWD:ALL
+#
+#         Adding multiple sudo rule strings.
+#             sudo:
+#               - ALL=(ALL) NOPASSWD:/bin/mysql
+#               - ALL=(ALL) ALL
+#
+#         Prevent sudo access for a user.
+#             sudo: False
+#
+#         Note: Please double check your syntax and make sure it is valid.
+#               cloud-init does not parse/check the syntax of the sudo
+#               directive.
+#   system: Create the user as a system user. This means no home directory.
+#   snapuser: Create a Snappy (Ubuntu-Core) user via the snap create-user
+#             command available on Ubuntu systems.  If the user has an account
+#             on the Ubuntu SSO, specifying the email will allow snap to
+#             request a username and any public ssh keys and will import
+#             these into the system with username specified by SSO account.
+#             If 'username' is not set in SSO, then username will be the
+#             shortname before the email domain.
+#
+
+# Default user creation:
+#
+# Unless you define users, you will get a 'ubuntu' user on Ubuntu systems with the
+# legacy permission (no password sudo, locked user, etc). If however, you want
+# to have the 'ubuntu' user in addition to other users, you need to instruct
+# cloud-init that you also want the default user. To do this use the following
+# syntax:
+#   users:
+#     - default
+#     - bob
+#     - ....
+#  foobar: ...
+#
+# users[0] (the first user in users) overrides the user directive.
+#
+# The 'default' user above references the distro's config:
+# system_info:
+#   default_user:
+#     name: Ubuntu
+#     plain_text_passwd: 'ubuntu'
+#     home: /home/ubuntu
+#     shell: /bin/bash
+#     lock_passwd: True
+#     gecos: Ubuntu
+#     groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
+
+# add each entry to ~/.ssh/authorized_keys for the configured user or the
+#
+# first user defined in the user definition directive.
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR9/BUL8KzBYhjEMMgVb8SUemtSFpecq1aLNVfKvxffd8UmZh5sqodxDJSEu+1T9hThVgWRzHBoJmk4/HMNKmKmr1W27cTMcgs7HRXXBssTQaeookaoWIJHHDGKH0+RiZKgjDUG7dd8yiv5M7vDtJWom2L9wT2q5nib83LSuf1IHC1bLyZYjvgSvvZyTqSwWtUv2E25A8+ko2TeGXrBJy/qaYU8rG/AxLDcdGU5vIr/2sPCyFrHWHQbDb5T/x2bQwXmYURDEUCnEXUrk3/OS3Pf/Rpt25jzY26jT5ZucFN9N4sG7QLJJ9dHWoQJ731K9DIkZPVALQADolVYsQLM2jputlk9uWJ1I9zoRH5qiybEhdAfjmQvmRmrf3GKaBRUxm7SVhdFugW/U5M4gJtN9OBHHdiqNXm/sbF3K27OwCG3VfAUgXEZU4a5+pca+7huwwYpvuQOBGKiTsxfDf5AZuyYWz1B0bOdpbwiMqiqtoO+RMF4efN5U2jhgugPiui96U= dasky92@bogon
+
+# Send pre-generated SSH private keys to the server
+#
+# If these are present, they will be written to /etc/ssh and
+# new random keys will not be generated
+#  in addition to 'rsa' and 'dsa' as shown below, 'ecdsa' is also supported
+ssh_keys:
+  rsa_private: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    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
+    -----END OPENSSH PRIVATE KEY-----
+
+  rsa_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR9/BUL8KzBYhjEMMgVb8SUemtSFpecq1aLNVfKvxffd8UmZh5sqodxDJSEu+1T9hThVgWRzHBoJmk4/HMNKmKmr1W27cTMcgs7HRXXBssTQaeookaoWIJHHDGKH0+RiZKgjDUG7dd8yiv5M7vDtJWom2L9wT2q5nib83LSuf1IHC1bLyZYjvgSvvZyTqSwWtUv2E25A8+ko2TeGXrBJy/qaYU8rG/AxLDcdGU5vIr/2sPCyFrHWHQbDb5T/x2bQwXmYURDEUCnEXUrk3/OS3Pf/Rpt25jzY26jT5ZucFN9N4sG7QLJJ9dHWoQJ731K9DIkZPVALQADolVYsQLM2jputlk9uWJ1I9zoRH5qiybEhdAfjmQvmRmrf3GKaBRUxm7SVhdFugW/U5M4gJtN9OBHHdiqNXm/sbF3K27OwCG3VfAUgXEZU4a5+pca+7huwwYpvuQOBGKiTsxfDf5AZuyYWz1B0bOdpbwiMqiqtoO+RMF4efN5U2jhgugPiui96U= dasky92@bogon
+
+# By default, the fingerprints of the authorized keys for the users
+#
+# cloud-init adds are printed to the console. Setting
+# no_ssh_fingerprints to true suppresses this output.
+no_ssh_fingerprints: false
+
+# By default, (most) ssh host keys are printed to the console. Setting
+#
+# emit_keys_to_console to false suppresses this output.
+ssh:
+  emit_keys_to_console: false
+
+# run commands
+#
+# default: none
+# runcmd contains a list of either lists or a string
+# each item will be executed in order at rc.local like level with
+# output to the console
+# - runcmd only runs during the first boot
+# - if the item is a list, the items will be properly executed as if
+#   passed to execve(3) (with the first arg as the command).
+# - if the item is a string, it will be simply written to the file and
+#   will be interpreted by 'sh'
+#
+# Note, that the list has to be proper yaml, so you have to quote
+# any characters yaml would eat (':' can be problematic)
+runcmd:
+ - [ ls, -l, / ]
+ - [ sh, -xc, "echo $(date) ': hello world!'" ]
+ - [ sh, -c, echo "=========hello world=========" ]
+ - ls -l /root
+ # Note: Don't write files to /tmp from cloud-init use /run/somedir instead.
+ # Early boot environments can race systemd-tmpfiles-clean LP: #1707222.
+ - mkdir /run/tmp
+

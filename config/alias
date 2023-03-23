@@ -122,6 +122,7 @@ alias dc="docker-compose"
 # the same as jetbrains, neovim
 alias gg="lazygit"
 alias dd="lazydocker"
+alias mm="multipass"
 
 
 # abbrev

@@ -97,9 +97,13 @@ fi
 # ###############################
 # GO env start
 export GOPATH="${HOME}/go"
-export GOPROXY="https://goproxy.cn"
+export GOPROXY="https://goproxy.io,direct"
 export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE="on"
+if [[ -e "${HOME}/.gvm/scripts" ]]; then
+    source ${HOME}/.gvm/scripts/gvm
+fi
+
 # GO env end
 
 # custom compay shell
@@ -111,9 +115,12 @@ fi
 # export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# pip install package from source which need to compile
+#export LDFLAGS="-L/usr/local/opt/llvm/lib"
+#export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
+export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 # ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
@@ -128,4 +135,3 @@ fi
 
 # autoenv for python virtualenv manager
 source `which activate.sh`
-
