@@ -117,7 +117,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias ra="ranger"
 alias vi="vim"
 alias nv="~/workspace/opt/nvim/bin/nvim"
-alias e="emacs -nw"
 alias dc="docker-compose"
 # the same as jetbrains, neovim
 alias gg="lazygit"

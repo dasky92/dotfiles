@@ -79,19 +79,10 @@ On_IWhite='\e[0;107m'   # White
 
 # ###############################
 # alias
-if [ -e "${HOME}/.alias" ]; then
-    source "${HOME}/.alias"
+if [ -e "${HOME}/.bash_alias" ]; then
+    source "${HOME}/.bash_alias"
 fi
 # alias end
-
-
-# ###############################
-# z.lua start
-if [ -e "${HOME}/z.lua" ]; then
-    eval "$(lua ${HOME}/z.lua --init zsh)"
-    export _ZL_CMD="j"
-fi
-# z.lua end
 
 
 # ###############################
@@ -106,32 +97,18 @@ fi
 
 # GO env end
 
-# custom compay shell
-if [ -e "${HOME}/.com.local" ]; then
-    source "${HOME}/.com.local"
-fi
-
-# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -I/usr/local/opt/openssl@1.1/include"
-# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-
-# pip install package from source which need to compile
-#export LDFLAGS="-L/usr/local/opt/llvm/lib"
-#export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
-export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
-# ranger
-export RANGER_LOAD_DEFAULT_RC=FALSE
-
-# vscode add into path
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-
 # node bin
 if [[ -e '~/node_modules/.bin' ]]; then
     export PATH="$PATH:~/node_modules/.bin"
 fi
 
-# autoenv for python virtualenv manager
-source `which activate.sh`
+# local custom bash/zsh rc file
+if [ -e "${HOME}/.customrc" ]; then
+    source "${HOME}/.customrc"
+fi
+
+# ranger
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+

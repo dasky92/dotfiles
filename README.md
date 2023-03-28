@@ -7,4 +7,4 @@ Init you linux system.
 
 # Remote Quick Install
 
-> ./install -c install.server.yaml
+> ./install -c install.quick.yaml

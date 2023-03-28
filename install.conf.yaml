@@ -8,21 +8,18 @@
 - link:
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
-    ~/.bashrc.local: config/bashrc.local
+    ~/.commonrc: config/commonrc
     ~/.zshrc: config/zshrc
     ~/.p10k.zsh: config/p10k.zsh
-    ~/.bashrc.com: config/bashrc.com
-    ~/.alias: config/alias
+    ~/.bash_alias: config/bash_alias
     ~/.gitconfig: config/gitconfig
     ~/.gitmessage: config/gitmessage
     ~/.inputrc: config/inputrc
     ~/.tmux.conf: config/tmux.conf
     ~/.ctags: config/ctags
-    ~/.emacs.d: emacs-dae
     ~/tox.ini: config/tox.ini
     ~/z.lua: config/z.lua
     ##### directory #####
-    ~/.config/nvim: nvim.lua
     ~/.pip: pip
 
 - create:
@@ -31,4 +28,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [echo 'You should add .bashrc.com in .bashrc when others all executed successfully', >>> TODO]
+  - [bash config/post_install, init commonrc after ~/.bashrc]

@@ -7,8 +7,8 @@
 
 - link:
     ~/.vimrc: config/vimrc
-    ~/.bashrc.local: config/bashrc.local
-    ~/.alias: config/alias
+    ~/.commonrc: config/commonrc
+    ~/.bash_alias: config/bash_alias
     ~/.gitconfig: config/gitconfig
     ~/.gitmessage: config/gitmessage
     ~/.inputrc: config/inputrc
@@ -22,3 +22,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [bash config/post_install, init commonrc after ~/.bashrc]

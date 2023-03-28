@@ -1,0 +1,3 @@
+if [ -f ~/.bashrc ]; then
+    echo '[[ -f ~/.commonrc ]] && source ~/.commonrc' >> ~/.bashrc
+fi
