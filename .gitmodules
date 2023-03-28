@@ -2,11 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "nvim.lua"]
-	path = nvim.lua
-	url = git@github.com:dasky92/nvim.lua.git
-    ignore = all
-[submodule "emacs-dae"]
-	path = emacs-dae
-	url = git@github.com:dasky92/emacs-dae.git
-	ignore = all
