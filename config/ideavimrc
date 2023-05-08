@@ -21,13 +21,11 @@ set showcmd
 set hidden
 
 " tab action "
-map <c-h> :action NextTab<CR>
-map <c-l> :action PreviousTab<CR>
+map <c-h> :action PreviousTab<CR>
+map <c-l> :action NextTab<CR>
 
 " common editor settings "
 " can find actions by `:actionlist pattern` in command-mode"
-nnoremap <localleader>r :action Run<CR>
-nnoremap <localleader>d :action Debug<CR>
 nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
 nnoremap <c-o> :action Back<cr>
@@ -45,9 +43,9 @@ map <leader>r  :action RecentFiles<CR>
 map <leader>i  :action GotoSymbol<CR>
 
 map <leader>a  :action CopyReferencePopupGroup<CR>
-
-map <leader>p  :action PasteMultiple<CR>
-map <leader>R  :action RefactoringMenu<CR>
+map <leader>R  :action Run<CR>
+map <leader>D  :action Debug<CR>
+map <leader><space>  :action QuickList.MostUsed<CR>
 
 " window manager "
 map <leader>\ :action SplitVertically<CR>

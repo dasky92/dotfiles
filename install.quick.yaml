@@ -7,6 +7,7 @@
 
 - link:
     ~/.vimrc: config/vimrc
+    ~/.ideavimrc: config/ideavimrc
     ~/.commonrc: config/commonrc
     ~/.bash_alias: config/bash_alias
     ~/.gitconfig: config/gitconfig
