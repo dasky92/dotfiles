@@ -122,6 +122,7 @@ alias dc="docker-compose"
 alias gg="lazygit"
 alias dd="lazydocker"
 alias mm="multipass"
+alias kubectl="minikube kubectl --"
 
 
 # abbrev
