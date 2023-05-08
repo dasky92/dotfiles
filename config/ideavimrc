@@ -1,6 +1,6 @@
 " global settings "
 let mapleader = " "
-let localleader = " "
+let localleader = ","
 
 inoremap kj <Esc>
 set clipboard+=unnamed
@@ -21,8 +21,8 @@ set showcmd
 set hidden
 
 " tab action "
-map ]t :action NextTab<CR>
-map [t :action PreviousTab<CR>
+map <c-h> :action NextTab<CR>
+map <c-l> :action PreviousTab<CR>
 
 " common editor settings "
 " can find actions by `:actionlist pattern` in command-mode"
@@ -33,39 +33,36 @@ nnoremap ]m :action MethodDown<cr>
 nnoremap <c-o> :action Back<cr>
 nnoremap <c-i> :action Forward<cr>
 
-map <leader>x  :action SearchEverywhere<CR>
-map <leader>S  :action SaveAll<CR>
+map <leader>;  :action SearchEverywhere<CR>
 map <leader>s  :action FindInPath<CR>
 map <leader>l :action Find<CR>
-" map <leader>xk :action CloseEditor<CR>
 map <leader>g  :action Git.Menu<CR>
 map <leader>f  :action GotoFile<CR>
 map <leader>m  :action FileMenu<CR>
-" map <leader>pp :action PasteMultiple<CR>
 
 map <leader>k  :action ToggleZenMode<CR>
 map <leader>r  :action RecentFiles<CR>
 map <leader>i  :action GotoSymbol<CR>
 
-map <leader>a  :action $Copy<CR>
-map <leader>c  :action CommentByLineComment<CR>
-map <leader>p  :action CopyPaths<CR>
-map <leader>z  :action PasteSimple<CR>
-map <leader>y  :action PasteMultiple<CR>
-" map <leader>r  :action RefactoringMenu
+map <leader>a  :action CopyReferencePopupGroup<CR>
+map <leader>p  :action PasteMultiple<CR>
+
+map <leader>R  :action Run<CR>
+map <leader>D  :action Debug<CR>
+map <leader><space>  :action QuickList.MostUsed<CR>
 
 " window manager "
-map <leader>w2 :action SplitVertically<CR>
-map <leader>w3 :action SplitHorizontally<CR>
+map <leader>\ :action SplitVertically<CR>
+map <leader>- :action SplitHorizontally<CR>
 
-" terminal manager
-" map ,xz :action ActivateTerminalToolWindow<CR>
 map <C-]> :action GotoImplementation<CR>
 
-" norevmap ,x0 :q<CR>
-map ; :
+nnoremap ; :
 
-" more instruction"
+
+map D :action $EditorTranslateAction<CR>
+
+" more instruction
 " gd: gotodefinition, but when you are at function definition, gd: findusage"
 
 " insert-mode move
@@ -79,5 +76,3 @@ inoremap <c-e> <end>
 " ex-mode move
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
-cnoremap <c-n> <down>
-cnoremap <c-p> <up
