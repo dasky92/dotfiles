@@ -2,7 +2,8 @@
 let mapleader = " "
 let localleader = ","
 
-inoremap kj <Esc>
+"inoremap kj <Esc>
+" Use<C-]> instead of kj, because k is usually used
 set clipboard+=unnamed
 set clipboard+=ideaput
 

@@ -166,8 +166,9 @@ cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <c-n> <down>
 cnoremap <c-p> <up
-" jj is escape, <ESC> is very far away. jk is a much better.
-inoremap kj <ESC>
+" jj is escape, <ESC> is very far away. kj is a much better.
+" Use <c-[> to instead of kj
+"inoremap kj <ESC>
 
 " move to beginning/end of line
 " 0 == ^
