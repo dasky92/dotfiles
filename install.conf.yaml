@@ -9,6 +9,7 @@
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
     ~/.commonrc: config/commonrc
+    ~/.bashrc: config/bashrc
     ~/.zshrc: config/zshrc
     ~/.p10k.zsh: config/p10k.zsh
     ~/.bash_alias: config/bash_alias

@@ -9,6 +9,7 @@
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
     ~/.commonrc: config/commonrc
+    ~/.bashrc: config/bashrc
     ~/.bash_alias: config/bash_alias
     ~/.gitconfig: config/gitconfig
     ~/.gitmessage: config/gitmessage

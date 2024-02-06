@@ -120,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Disable pyenv flag
-SPACESHIP_PYENV_SHOW="false"
+SPACESHIP_PYENV_SHOW="true"
 
 # kubectl context
 SPACESHIP_KUBECONTEXT_SHOW="true"
@@ -135,4 +135,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ ! -f ~/.commonrc ]] || source ~/.commonrc
+
+# iterm2 shell integration
+[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
 

@@ -1,0 +1,4 @@
+[[ -f ~/.commonrc ]] && source ~/.commonrc
+# iterm2 shell integration
+[[ -f ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
+[[ -f ~/.commonrc ]] && source ~/.commonrc
