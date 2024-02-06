@@ -11,3 +11,5 @@ backup/
 tags
 ### neovim ###
 nvim.lua/
+### pyenv ###
+.python-version
