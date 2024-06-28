@@ -127,15 +127,17 @@ SPACESHIP_KUBECONTEXT_SHOW="true"
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -f ~/.p10k.zsh ]]; then
+    source ~/.p10k.zsh
+fi
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ ! -f ~/.commonrc ]] || source ~/.commonrc
+if [[ -f ~/.commonrc ]]; then
+    source ~/.commonrc
+fi
 
 # iterm2 shell integration
 [[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
 
+# init z.lua
+eval "$(lua ~/z.lua --init zsh)"

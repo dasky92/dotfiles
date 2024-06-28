@@ -1,7 +1,7 @@
 # user不设置，为每个项目单独设置user
 [user]
- 	name = wanchao
- 	email = dasky92@163.com
+	name = <name>
+ 	email = <mail>
 [alias]
     ai = add -i
 	co = commit
@@ -9,19 +9,11 @@
 	ca = commit --amend
 	br = branch
 	ct = checkout
-	ctb = checkout -b
 	st = status
+	lst = status
 	unstage = reset HEAD --
 	last = log -1
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	pl = pull
-	pu = push
-	r = remote
-	rbi = rebase -i
-	rba = rebase --abort
-	rbn = rebase --continue
-	rbs = rebase --skip
-	cl = config --list
 [http]
 	postBuffer = 1048576000
 [core]
@@ -32,8 +24,6 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
-# [remote "origin"]
-# proxy = 127.0.0.1:7890
 [init]
 	defaultBranch = main
 [merge]

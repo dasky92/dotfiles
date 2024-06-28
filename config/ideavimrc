@@ -49,8 +49,9 @@ map <leader>p  :action PasteMultiple<CR>
 
 map <leader>w :w<Enter>
 
-map <leader>R  :action Run<CR>
-map <leader>D  :action Debug<CR>
+" not used frequency
+" map <leader>R  :action Run<CR>
+" map <leader>D  :action Debug<CR>
 map <leader><space>  :action QuickList.MostUsed<CR>
 
 " window manager "

@@ -1,0 +1,30 @@
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.vimrc: config/vimrc
+    ~/.ideavimrc: config/ideavimrc
+    ~/z.lua: config/z.lua
+    ~/.alias: config/alias
+    ~/.gitmessage: config/gitmessage
+    ~/.tmux.conf: config/tmux.conf
+    ~/.iterm2_shell_integration.bash: config/iterm2_shell_integration.bash
+    ~/.iterm2_shell_integration.zsh: config/iterm2_shell_integration.zsh
+    ~/.commonrc: config/commonrc
+    ~/.custom_bashrc: config/custom_bashrc
+    ~/.p10k.zsh: config/p10k.zsh
+    ~/.custom_zshrc: config/custom_zshrc
+    ##### directory #####
+    ~/.pip: pip
+
+- create:
+    - ~/.pip
+    - ~/.config
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [bash config/post_install, post install]
