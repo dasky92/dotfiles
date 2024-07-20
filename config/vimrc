@@ -294,3 +294,113 @@ endif
 " }}}
 
 " }
+
+call plug#begin()
+
+Plug 'yggdroot/leaderf'
+Plug 'yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'voldikss/vim-translator'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" {{{ translator settings
+let g:translator_target_lang='zh'
+let g:translator_default_engines=['youdao', 'bing']
+" popup, preview
+let g:translator_window_type='popup'
+" Display translation in a window
+nmap <silent> <Leader>d <Plug>TranslateW
+vmap <silent> <Leader>d <Plug>TranslateWV
+" }}}
+
+" {{{ LeaderF settings
+" <C-R> switch between fuzzy search mode and regex mode
+" <C-F> switch between full path search mode and name only search mode
+" <C-P> preview the result
+" TODO: gtags
+" NOTE: use c-k, c-j
+"let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>f"
+noremap <leader>i :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>; :<C-U><C-R>=printf("Leaderf command %s", "")<CR><CR>
+noremap <leader>/ :<C-U><C-R>=printf("Leaderf rg --current-buffer %s", "")<CR><CR>
+noremap <leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>q :<C-U><C-R>=printf("Leaderf! quickfix %s", "")<CR><CR>
+noremap <leader>l :<C-U><C-R>=printf("Leaderf! loclist %s", "")<CR><CR>
+
+noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+" }}}
+
+" {{{ go language
+autocmd FileType go setlocal shiftwidth=4 tabstop=8 softtabstop=8
+augroup go
+    autocmd!
+    autocmd FileType go setlocal commentstring=//\ %s
+    autocmd BufEnter Makefile setlocal noexpandtab
+
+    au FileType go nmap <leader>gr <Plug>(go-rename)
+    au FileType go nmap <leader>gt :GoAddTags json
+    au FileType go nmap <leader>gT :GoRemoveTags 
+    au FileType go nmap <leader>gf <Plug>(go-fmt)
+    au FileType go nmap <leader>gi <Plug>(go-imports)
+    " not work well
+    "au FileType go nmap <leader>gI <Plug>(go-implements)
+    au FileType go nmap <leader>gl <Plug>(go-lint)
+    au FileType go nmap <leader>ge <Plug>(go-diagnostics)
+    " go-rename
+augroup END
+
+" 'gd' go to defination
+let g:go_fmt_autosave = 1
+" gopls, gofmt, goimports
+let g:go_fmt_command = 'gopls'
+let g:go_imports_autosave = 0
+" 'K' | :GoDoc is show doc
+let g:go_doc_popup_window = 1
+" struct tags format
+let g:go_addtags_transform = 'snakecase'
+" ':GoRun' reuse terminal
+let g:go_term_reuse = 1
+
+" }}}
+" {{{ coc.nvim
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" navigate next, last completion list
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" CR make sure
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" }}}
