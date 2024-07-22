@@ -131,3 +131,5 @@ fi
 
 # init z.lua
 eval "$(lua ~/z.lua --init zsh)"
+
+[[ -s "/home/dasky/.gvm/scripts/gvm" ]] && source "/home/dasky/.gvm/scripts/gvm"
