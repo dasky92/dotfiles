@@ -39,7 +39,7 @@ nnoremap ; :
 " }}}
 
 " {{{ >>> UI Display <<<
-" show command in bottom bar
+" show line number
 set number
 " Be convinent for vim command
 set relativenumber
@@ -248,7 +248,6 @@ augroup configgroup
     " clear empty spaces at the end of lines on save of python files
     autocmd BufWritePre *.py :%s/\s\+$//e
     autocmd FileType python setlocal commentstring=#\ %s
-    autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
     autocmd BufEnter *.sh setlocal tabstop=2
     autocmd BufEnter *.sh setlocal shiftwidth=2
@@ -269,16 +268,6 @@ augroup END
 " paste not busy
 set nopaste
 set pastetoggle=<F10>
-func! PRUN()
-    exec "w"
-    if &filetype == 'python'
-        exec "!python3 %"
-    elseif &filetype == 'go'
-        exec "GoRun"
-    endif
-endfunc
-" run python by F5
-nnoremap <leader>r :call PRUN()<CR>
 " }}}
 
 " }}}
