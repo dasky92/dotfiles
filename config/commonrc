@@ -46,3 +46,7 @@ fi
 # ############ PATH ############
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 # ##############################
+
+# ############ true color #############
+export TERM=xterm-256color
+# ##############################

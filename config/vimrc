@@ -61,6 +61,9 @@ set wildmenu
 " redraw only when we need to.
 set lazyredraw
 set history=100
+" hide edit mode, supplied by lightline.vim
+set noshowmode
+set laststatus=2
 " }}}
 
 " {{{ >>> Fold <<<
@@ -282,6 +285,7 @@ Plug 'voldikss/vim-translator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'preservim/nerdcommenter'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -411,7 +415,6 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " line comment, uncomment
 "[count]|<Leader>|cc |NERDCommenterComment|
 "[count]|<Leader>|cu |NERDCommenterUncomment|
-
 " lines comment, uncomment
 "[count]|<Leader>|cm |NERDCommenterMinimal|
 "[count]|<Leader>|c<space> |NERDCommenterToggle|
