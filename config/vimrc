@@ -281,6 +281,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'voldikss/vim-translator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'preservim/nerdcommenter'
+
 call plug#end()
 
 " {{{ translator settings
@@ -396,4 +398,21 @@ if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
         let &t_Co = 256
     endif
 endif
+" }}}
+" {{{ NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+" let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" line comment, uncomment
+"[count]|<Leader>|cc |NERDCommenterComment|
+"[count]|<Leader>|cu |NERDCommenterUncomment|
+
+" lines comment, uncomment
+"[count]|<Leader>|cm |NERDCommenterMinimal|
+"[count]|<Leader>|c<space> |NERDCommenterToggle|
 " }}}
