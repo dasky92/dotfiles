@@ -237,24 +237,22 @@ map <leader>w= <C-w>=
 
 " {{{ >>> Space & Tab <<<
 set expandtab
-set tabstop=4
-set softtabstop=4
+"set tabstop=4
 set shiftwidth=4
+" keep same with shiftwidth automatic
+set softtabstop=-1
 set ruler
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
-    " clear empty spaces at the end of lines on save of python files
-    autocmd BufWritePre *.py :%s/\s\+$//e
     autocmd FileType python setlocal commentstring=#\ %s
     autocmd BufEnter Makefile setlocal noexpandtab
-    autocmd BufEnter *.sh setlocal tabstop=2
-    autocmd BufEnter *.sh setlocal shiftwidth=2
-    autocmd BufEnter *.sh setlocal softtabstop=2
+    autocmd BufEnter *.sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 " }}}
 
@@ -309,8 +307,12 @@ vmap <silent> <Leader>d <Plug>TranslateWV
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
-let g:Lf_UseVersionControlTool = 0
+let g:Lf_UseVersionControlTool = 1
 let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_WorkingDirectoryMode = 'Ac'
+" When using leaderfFile dir, change the current working directory
+let g:Lf_NoChdir = 0
+
 " popup mode
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
@@ -344,11 +346,9 @@ let g:Lf_Gtagslabel = 'native-pygments'
 " }}}
 
 " {{{ go language
-autocmd FileType go setlocal shiftwidth=4 tabstop=8 softtabstop=8
 augroup go
     autocmd!
     autocmd FileType go setlocal commentstring=//\ %s
-    autocmd BufEnter Makefile setlocal noexpandtab
 
     au FileType go nmap <leader>gr <Plug>(go-rename)
     au FileType go nmap <leader>gt :GoAddTags json
