@@ -279,7 +279,7 @@ call plug#begin()
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'voldikss/vim-translator'
+"Plug 'voldikss/vim-translator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'preservim/nerdcommenter'
@@ -293,8 +293,8 @@ let g:translator_default_engines=['youdao', 'bing']
 " popup, preview
 let g:translator_window_type='popup'
 " Display translation in a window
-nmap <silent> <Leader>d <Plug>TranslateW
-vmap <silent> <Leader>d <Plug>TranslateWV
+nmap <silent> <Leader>d <Plug>(coc-translator-p)
+vmap <silent> <Leader>d <Plug>(coc-translator-pv)
 " }}}
 
 " {{{ LeaderF settings
