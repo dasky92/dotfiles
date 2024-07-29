@@ -117,6 +117,9 @@ alias gg="lazygit"
 alias dd="lazydocker"
 alias kubectl="minikube kubectl --"
 
+# customize tools: github.com/dasky92/itools
+alias tt="itools"
+
 
 # abbrev
 alias falsk="flask"
