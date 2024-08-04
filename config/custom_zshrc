@@ -133,3 +133,5 @@ fi
 eval "$(lua ~/z.lua --init zsh)"
 
 [[ -s "/home/dasky/.gvm/scripts/gvm" ]] && source "/home/dasky/.gvm/scripts/gvm"
+# itools completion
+[[ -f ~/.bin/itools_completion_zsh]] && (cd ~/.bin && source itools_completion_zsh)

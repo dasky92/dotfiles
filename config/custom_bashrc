@@ -5,3 +5,5 @@
 [[ -f ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 # init z.lua
 eval "$(lua ~/z.lua --init bash enhanced)"
+# itools completion
+[[ -f ~/.bin/itools_completion_bash ]] && (cd ~/.bin && source itools_completion_bash)
