@@ -1,7 +1,13 @@
 #! /bin/bash
 
 [[ -f ~/.commonrc ]] && source ~/.commonrc
-# iterm2 shell integration
-[[ -f ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 # init z.lua
 eval "$(lua ~/z.lua --init bash enhanced)"
+# load completion execute files
+if [[ -f ~/.bash_completion.d ]]; then
+    for compfile in `ls -a ~/.bash_completion.d`
+    do
+        source ~/.bash_completion.d/${compfile}
+    done
+fi
+

@@ -12,8 +12,8 @@
     ~/.alias: config/alias
     ~/.gitmessage: config/gitmessage
     ~/.tmux.conf: config/tmux.conf
-    ~/.iterm2_shell_integration.bash: config/iterm2_shell_integration.bash
-    ~/.iterm2_shell_integration.zsh: config/iterm2_shell_integration.zsh
+    ~/.bash_completion.d/iterm2_shell_integration.bash: config/iterm2_shell_integration.bash
+    ~/.zsh_completion.d/iterm2_shell_integration.zsh: config/iterm2_shell_integration.zsh
     ~/.commonrc: config/commonrc
     ~/.custom_bashrc: config/custom_bashrc
     ~/.p10k.zsh: config/p10k.zsh
@@ -24,6 +24,8 @@
 - create:
     - ~/.pip
     - ~/.config
+    - ~/.bash_completion.d
+    - ~/.zsh_completion.d
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

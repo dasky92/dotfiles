@@ -126,10 +126,13 @@ if [[ -f ~/.commonrc ]]; then
     source ~/.commonrc
 fi
 
-# iterm2 shell integration
-[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
-
 # init z.lua
 eval "$(lua ~/z.lua --init zsh)"
 
-[[ -s "/home/dasky/.gvm/scripts/gvm" ]] && source "/home/dasky/.gvm/scripts/gvm"
+# load completion execute files
+if [[ -f ~/.zsh_completion.d ]]; then
+    for compfile in `ls -a ~/.zsh_completion.d`
+    do
+        source ~/.zsh_completion.d/${compfile}
+    done
+fi
