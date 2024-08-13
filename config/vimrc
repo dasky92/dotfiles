@@ -312,6 +312,9 @@ let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WorkingDirectoryMode = 'Ac'
 " When using leaderfFile dir, change the current working directory
 let g:Lf_NoChdir = 0
+"let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': 'DejaVu Sans Mono for Powerline' }
+let g:Lf_ShowDevIcons = 1
+
 
 " popup mode
 let g:Lf_WindowPosition = 'popup'
