@@ -337,10 +337,12 @@ noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>q :<C-U><C-R>=printf("Leaderf! quickfix %s", "")<CR><CR>
 noremap <leader>l :<C-U><C-R>=printf("Leaderf! loclist %s", "")<CR><CR>
 
-noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" Search and Replace
+noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -F --bottom -e %s", expand("<cword>"))<CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+" Recall last Search and Replace
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
 " should use `Leaderf gtags --update` first
