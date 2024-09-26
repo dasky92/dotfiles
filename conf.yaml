@@ -6,6 +6,7 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.vimrc.extend: config/vimrc.extend
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
     ~/z.lua: config/z.lua

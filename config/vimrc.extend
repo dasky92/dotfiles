@@ -1,0 +1,151 @@
+" Plugins Manager
+call plug#begin()
+
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'voldikss/vim-translator'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'preservim/nerdcommenter'
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
+
+" {{{ translator settings
+let g:translator_target_lang='zh'
+let g:translator_default_engines=['youdao', 'bing']
+" popup, preview
+let g:translator_window_type='popup'
+" Display translation in a window
+nmap <silent> <Leader>d <Plug>(coc-translator-p)
+vmap <silent> <Leader>d <Plug>(coc-translator-pv)
+" }}}
+
+" {{{ LeaderF settings
+" <C-R> switch between fuzzy search mode and regex mode
+" <C-F> switch between full path search mode and name only search mode
+" <C-P> preview the result
+" TODO: gtags
+" NOTE: use c-k, c-j
+"let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 1
+let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_WorkingDirectoryMode = 'Ac'
+" When using leaderfFile dir, change the current working directory
+let g:Lf_NoChdir = 0
+"let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': 'DejaVu Sans Mono for Powerline' }
+let g:Lf_ShowDevIcons = 1
+
+
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 0 }
+let g:Lf_WildIgnore = {
+    \ 'dir': ['__pycache__', '.git', 'venv', 'dist', 'build', '.idea',
+    \'.vscode', '.svn', '.hg'],
+    \ 'file': ['*.db', '*.sqlite', '*.exe', '*.o', '*.so', '*.py[co]', '*.bak', '*.log']
+    \}
+let g:Lf_MruFileExclude = ['*.db', '*.sqlite', '*.exe', '*.o', '*.so', '*.py[co]', '*.bak', '*.log']
+
+
+let g:Lf_ShortcutF = "<leader>f"
+let g:Lf_ShortcutB = "<leader>b"
+noremap <leader>i :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>; :<C-U><C-R>=printf("Leaderf command %s", "")<CR><CR>
+noremap <leader>/ :<C-U><C-R>=printf("Leaderf rg --current-buffer %s", "")<CR><CR>
+noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>q :<C-U><C-R>=printf("Leaderf! quickfix %s", "")<CR><CR>
+noremap <leader>l :<C-U><C-R>=printf("Leaderf! loclist %s", "")<CR><CR>
+
+" Search and Replace
+noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -F --bottom -e %s", expand("<cword>"))<CR>
+"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+" Recall last Search and Replace
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+" }}}
+
+" {{{ go language
+augroup go
+    autocmd!
+    autocmd FileType go setlocal commentstring=//\ %s
+
+    au FileType go nmap <leader>gr <Plug>(go-rename)
+    au FileType go nmap <leader>gt :GoAddTags json
+    au FileType go nmap <leader>gT :GoRemoveTags 
+    au FileType go nmap <leader>gf <Plug>(go-fmt)
+    au FileType go nmap <leader>gi <Plug>(go-imports)
+    " not work well
+    "au FileType go nmap <leader>gI <Plug>(go-implements)
+    au FileType go nmap <leader>gl <Plug>(go-lint)
+    au FileType go nmap <leader>ge <Plug>(go-diagnostics)
+    " go-rename
+augroup END
+
+" 'gd' go to defination
+let g:go_fmt_autosave = 1
+" gopls, gofmt, goimports
+let g:go_fmt_command = 'gopls'
+let g:go_imports_autosave = 1
+" 'K' | :GoDoc is show doc
+let g:go_doc_popup_window = 1
+" struct tags format
+let g:go_addtags_transform = 'snakecase'
+" ':GoRun' reuse terminal
+let g:go_term_reuse = 1
+
+" }}}
+" {{{ coc.nvim
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" navigate next, last completion list
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" CR make sure
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" }}}
+
+" {{{
+colorscheme dracula
+if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
+    if !has('gui_running')
+        let &t_Co = 256
+    endif
+endif
+" }}}
+" {{{ NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+" let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" line comment, uncomment
+"[count]|<Leader>|cc |NERDCommenterComment|
+"[count]|<Leader>|cu |NERDCommenterUncomment|
+" lines comment, uncomment
+"[count]|<Leader>|cm |NERDCommenterMinimal|
+"[count]|<Leader>|c<space> |NERDCommenterToggle|
+" }}}
