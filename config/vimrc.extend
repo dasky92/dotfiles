@@ -9,6 +9,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'preservim/nerdcommenter'
 Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -148,4 +150,14 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " lines comment, uncomment
 "[count]|<Leader>|cm |NERDCommenterMinimal|
 "[count]|<Leader>|c<space> |NERDCommenterToggle|
+" }}}
+" {{{ Auto Pairs
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+" }}}
+" {{{ emmet-vim
+" (<c-y>,) => complete
+let g:user_emmet_mode='inv'  "enable all functions in all mode
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall  "only active in html,css filetype
 " }}}
