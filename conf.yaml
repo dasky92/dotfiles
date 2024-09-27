@@ -9,6 +9,7 @@
     ~/.vimrc.extend: config/vimrc.extend
     ~/.vimrc: config/vimrc
     ~/.ideavimrc: config/ideavimrc
+    ~/.npmrc: config/npmrc
     ~/z.lua: config/z.lua
     ~/.alias: config/alias
     ~/.gitmessage: config/gitmessage
