@@ -1,4 +1,5 @@
 #! /bin/bash
+# 暂时不使用
 
 print_error() {
     # Print output in red

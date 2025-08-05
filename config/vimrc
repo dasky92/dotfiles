@@ -281,4 +281,4 @@ if has('gui_running') || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
 endif
 " }}}
 
-source <sfile>:h/.vimrc.extend
+"source <sfile>:h/.vimrc.extend
