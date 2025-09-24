@@ -17,7 +17,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # eastwood, nicoulaj, lambda, lukerandall, xiong-chiamiov-plus,
 #ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="crcandy"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -130,3 +130,5 @@ eval "$(lua ~/z.lua --init zsh)"
 #        source ~/.zsh_completion.d/${compfile}
 #    done
 #fi
+
+alias gf=gf
