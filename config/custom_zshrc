@@ -7,6 +7,9 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+if command -v mise >/dev/null 2>&1; then
+    eval "$(mise activate zsh)"
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -132,3 +135,4 @@ eval "$(lua ~/z.lua --init zsh)"
 #fi
 
 alias gf=gf
+
