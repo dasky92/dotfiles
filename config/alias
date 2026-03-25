@@ -106,11 +106,11 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # #################################### command-line shortcut ######################################
 
-alias ra="ranger"
 # the same as jetbrains, neovim
 alias gg="lazygit"
 alias dd="lazydocker"
-alias kubectl="minikube kubectl --"
+alias cc="claude"
+alias kk="minikube kubectl --"
 
 # customize tools: github.com/dasky92/itools
 alias tt="itools"

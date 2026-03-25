@@ -19,10 +19,6 @@ if [ -e "${HOME}/.customrc" ]; then
     source "${HOME}/.customrc"
 fi
 
-# ########### ranger ############
-export RANGER_LOAD_DEFAULT_RC=FALSE
-# ###############################
-
 
 # ########### pyenv ############
 if [ `command -v pyenv` ]; then

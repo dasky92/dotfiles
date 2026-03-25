@@ -7,8 +7,9 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-if command -v mise >/dev/null 2>&1; then
+if [[ -z "$MISE_SHELL" && -z "$MISE_ACTIVATED" ]]; then
     eval "$(mise activate zsh)"
+    export MISE_ACTIVATED="1"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -136,3 +137,11 @@ eval "$(lua ~/z.lua --init zsh)"
 
 alias gf=gf
 
+
+# pnpm
+export PNPM_HOME="/Users/dasky92/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
