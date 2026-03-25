@@ -1,31 +1,82 @@
-# Makefile for managing dotfiles installation and related configurations
+# Makefile for dotfiles management with stow
 
-.PHONY: install.dobot install install.ohmyzsh install.fonts install.macapp
+.PHONY: help install uninstall brew zsh test clean bootstrap backup clean-old
 
-# Define variables
-DOTFILES_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-CONFIG_DIR := $(DOTFILES_DIR)/config
-CONFIG := "conf.yaml"
-DOTBOT_DIR := "dotbot"
-DOTBOT_BIN := "bin/dotbot"
-BASEDIR := "$$(cd "$$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Default target
+help:
+	@echo "Dotfiles Management Commands:"
+	@echo ""
+	@echo "  make bootstrap   - Install Homebrew, stow, mise (run this first)"
+	@echo "  make backup      - Backup old configs"
+	@echo "  make clean-old   - Move old configs to *.old"
+	@echo "  make install     - Install all dotfiles using stow"
+	@echo "  make uninstall   - Remove all symlinks"
+	@echo "  make restow      - Reinstall dotfiles"
+	@echo "  make brew        - Install packages from Brewfile"
+	@echo "  make zsh         - Setup Zsh with Oh-My-Zsh and plugins"
+	@echo "  make test        - Test configuration"
+	@echo "  make clean       - Clean up broken symlinks"
+	@echo ""
 
-install.dotbot:
-	@cd "${BASEDIR}"
-	@git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-	@git submodule update --init --recursive "${DOTBOT_DIR}"
+# Bootstrap - Install base tools
+bootstrap:
+	@./scripts/bootstrap.sh
 
+# Install dotfiles with stow
 install:
-	@"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}"
+	@echo "📦 Installing dotfiles with stow..."
+	@stow -v -d $(PWD) -t $(HOME) shell
+	@stow -v -d $(PWD) -t $(HOME) config
+	@echo "✅ Dotfiles installed"
 
-install.ohmyzsh:
-	@echo "Installing Oh My Zsh..."
-	@bash ./scripts/ohmyzsh_install.sh
+# Uninstall dotfiles
+uninstall:
+	@echo "🗑️  Removing dotfiles symlinks..."
+	@stow -v -D -d $(PWD) -t $(HOME) shell
+	@stow -v -D -d $(PWD) -t $(HOME) config
+	@echo "✅ Symlinks removed"
 
-install.fonts:
-	@echo "Installing Powerline fonts..."
-	@bash ./scripts/powerline-fonts-install.sh
+# Restow (reinstall)
+restow:
+	@echo "🔄 Restowing dotfiles..."
+	@stow -v -R -d $(PWD) -t $(HOME) shell
+	@stow -v -R -d $(PWD) -t $(HOME) config
+	@echo "✅ Dotfiles restowed"
 
-install.macapp:
-	@echo "Installing Homebrew packages..."
-	@bash ./scripts/brew_install.sh
+# Install Homebrew packages
+brew:
+	@echo "📦 Installing packages from Brewfile..."
+	@brew bundle install
+	@echo "✅ Packages installed"
+
+# Setup Zsh
+zsh:
+	@echo "🦓 Setting up Zsh..."
+	@./scripts/setup_zsh.sh
+
+# Test configuration
+test:
+	@echo "🧪 Testing configuration..."
+	@./scripts/test_config.sh
+
+# Clean broken symlinks
+clean:
+	@echo "🧹 Cleaning broken symlinks in HOME..."
+	@find $(HOME) -maxdepth 1 -type l ! -exec test -e {} \; -print -delete
+	@echo "✅ Cleanup complete"
+
+# Backup old configs
+backup:
+	@./scripts/backup_old_configs.sh
+
+# Clean old dotfiles before stow
+clean-old:
+	@echo "🗑️  Moving old config files..."
+	@mv ~/.bashrc ~/.bashrc.old 2>/dev/null || true
+	@mv ~/.bash_profile ~/.bash_profile.old 2>/dev/null || true
+	@mv ~/.zshrc ~/.zshrc.old 2>/dev/null || true
+	@mv ~/.zprofile ~/.zprofile.old 2>/dev/null || true
+	@mv ~/.vimrc ~/.vimrc.old 2>/dev/null || true
+	@mv ~/.tmux.conf ~/.tmux.conf.old 2>/dev/null || true
+	@rm ~/.config/shell 2>/dev/null || true
+	@echo "✅ Old configs moved to *.old"

@@ -5,7 +5,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'voldikss/vim-translator'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'preservim/nerdcommenter'
 Plug 'itchyny/lightline.vim'
@@ -19,9 +19,6 @@ let g:translator_target_lang='zh'
 let g:translator_default_engines=['youdao', 'bing']
 " popup, preview
 let g:translator_window_type='popup'
-" Display translation in a window
-nmap <silent> <Leader>d <Plug>(coc-translator-p)
-vmap <silent> <Leader>d <Plug>(coc-translator-pv)
 " }}}
 
 " {{{ LeaderF settings
@@ -107,24 +104,26 @@ let g:go_addtags_transform = 'snakecase'
 let g:go_term_reuse = 1
 
 " }}}
-" {{{ coc.nvim
-
-" use <tab> to trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-" navigate next, last completion list
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
-" CR make sure
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" " {{{ coc.nvim
+" " Display translation in a window
+" nmap <silent> <Leader>d <Plug>(coc-translator-p)
+" vmap <silent> <Leader>d <Plug>(coc-translator-pv)
+" " use <tab> to trigger completion and navigate to the next complete item
+" function! CheckBackspace() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+" 
+" inoremap <silent><expr> <Tab>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+" 
+" " navigate next, last completion list
+" inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+" inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" " CR make sure
+" inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 " }}}
 
 " {{{
