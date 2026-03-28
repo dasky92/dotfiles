@@ -3,6 +3,30 @@
 # Zsh interactive shell configuration
 
 # ============================================
+# Load Common Configuration
+# ============================================
+
+# Environment variables (POSIX compatible)
+if [ -f "$HOME/.config/shell/env.sh" ]; then
+    source "$HOME/.config/shell/env.sh"
+fi
+
+# Private environment (tokens, secrets)
+if [ -f "$HOME/.config/shell/env.private.sh" ]; then
+    source "$HOME/.config/shell/env.private.sh"
+fi
+
+# Common aliases
+if [ -f "$HOME/.config/shell/aliases.sh" ]; then
+    source "$HOME/.config/shell/aliases.sh"
+fi
+
+# Work-specific aliases (optional)
+if [ -f "$HOME/.config/shell/aliases.work.sh" ]; then
+    source "$HOME/.config/shell/aliases.work.sh"
+fi
+
+# ============================================
 # mise early activation (before Oh-My-Zsh)
 # ============================================
 
@@ -45,41 +69,12 @@ DISABLE_FZF_AUTO_COMPLETION="true"
 DISABLE_FZF_KEY_BINDINGS="true"
 
 # ============================================
-# Load Common Configuration
-# ============================================
-
-# Environment variables (POSIX compatible)
-if [ -f "$HOME/.config/shell/env.sh" ]; then
-    source "$HOME/.config/shell/env.sh"
-fi
-
-# Private environment (tokens, secrets)
-if [ -f "$HOME/.config/shell/env.private.sh" ]; then
-    source "$HOME/.config/shell/env.private.sh"
-fi
-
-# Common aliases
-if [ -f "$HOME/.config/shell/aliases.sh" ]; then
-    source "$HOME/.config/shell/aliases.sh"
-fi
-
-# Work-specific aliases (optional)
-if [ -f "$HOME/.config/shell/aliases.work.sh" ]; then
-    source "$HOME/.config/shell/aliases.work.sh"
-fi
-
-# ============================================
 # Zsh-Specific Tools
 # ============================================
 
 # z.lua navigation
 if [ -f "$HOME/z.lua" ]; then
     eval "$(lua $HOME/z.lua --init zsh)"
-fi
-
-# iTerm2 shell integration (optional)
-if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
-    source "$HOME/.iterm2_shell_integration.zsh"
 fi
 
 # ============================================
