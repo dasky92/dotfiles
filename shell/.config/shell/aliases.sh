@@ -63,7 +63,7 @@ alias ga="git commit --amend"
 # ============================================
 
 # Lazy tools
-alias gg="lazygit"
+alias lg="lazygit"
 alias dd="lazydocker"
 alias cc="claude"
 alias kk="minikube kubectl --"
@@ -85,24 +85,6 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias path='echo -e ${PATH//:/\\n}'
-
-# ============================================
-# macOS Specific
-# ============================================
-
-# Hex dump fallback
-command -v hd > /dev/null || alias hd="hexdump -C"
-
-# md5/sha1 fallbacks for macOS
-command -v md5sum > /dev/null || alias md5sum="md5"
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-# Desktop icons (for presentations)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 # Reload shell
 alias reload="exec ${SHELL} -l"
