@@ -78,5 +78,6 @@ clean-old:
 	@mv ~/.zprofile ~/.zprofile.old 2>/dev/null || true
 	@mv ~/.vimrc ~/.vimrc.old 2>/dev/null || true
 	@mv ~/.tmux.conf ~/.tmux.conf.old 2>/dev/null || true
+	@mv ~/.config/fish/config.fish ~/.config/fish/config.fish.old 2>/dev/null || true
 	@rm ~/.config/shell 2>/dev/null || true
 	@echo "✅ Old configs moved to *.old"
