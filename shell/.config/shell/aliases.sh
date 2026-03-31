@@ -51,7 +51,6 @@ alias nowdate='date +"%Y-%m-%d"'
 # ============================================
 
 alias gs="git status"
-alias gS="git stash"
 alias gp="git pull"
 alias gP="git push"
 alias gc="git commit"
@@ -70,20 +69,13 @@ alias kk="minikube kubectl --"
 alias tt="itools"
 
 # Python
-alias json="python -m json.tool"
+alias json="python3 -m json.tool"
 alias www='python3 -m http.server 8000'
-
-# Typo fixes
-alias falsk="flask"
 
 # ============================================
 # System Information
 # ============================================
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Reload shell
