@@ -30,9 +30,6 @@ alias nowtime 'date +"%T"'
 alias nowdate 'date +"%Y-%m-%d"'
 
 alias gs 'git status'
-alias gp 'git pull'
-alias gP 'git push'
-alias gc 'git commit'
 alias gm 'git commit -m'
 alias ga 'git commit --amend'
 
@@ -44,11 +41,3 @@ alias tt 'itools'
 
 alias json 'python3 -m json.tool'
 alias www 'python3 -m http.server 8000'
-
-function show-path
-    printf '%s\n' $PATH
-end
-
-function reload
-    exec fish -l
-end

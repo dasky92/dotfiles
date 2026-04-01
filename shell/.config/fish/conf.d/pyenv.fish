@@ -1,4 +1,7 @@
-# Fish-native pyenv initialization migrated from `env.sh`.
+# Fish-native pyenv environment and initialization.
+
+set -gx PYENV_ROOT "$HOME/.pyenv"
+set -gx PYENV_VIRTUALENV_DISABLE_PROMPT 1
 
 if command -q pyenv
     if not contains -- "$PYENV_ROOT/bin" $PATH

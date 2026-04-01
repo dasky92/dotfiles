@@ -39,21 +39,10 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias grep='grep --color=auto'
 
 # ============================================
-# Date & Time
-# ============================================
-
-alias now='date +"%Y-%m-%d %H:%M:%S"'
-alias nowtime='date +"%T"'
-alias nowdate='date +"%Y-%m-%d"'
-
-# ============================================
 # Git Shortcuts
 # ============================================
 
 alias gs="git status"
-alias gp="git pull"
-alias gP="git push"
-alias gc="git commit"
 alias gm="git commit -m"
 alias ga="git commit --amend"
 

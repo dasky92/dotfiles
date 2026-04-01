@@ -1,4 +1,11 @@
-# Fish-compatible NVM wrapper migrated from `env.sh`.
+# Fish-compatible Node tool environment.
+
+set -gx NVM_DIR "$HOME/.nvm"
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+
+if not contains -- "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
 
 if test -s "$NVM_DIR/nvm.sh"
     if not functions -q nvm
