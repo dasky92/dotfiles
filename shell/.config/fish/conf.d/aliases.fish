@@ -45,7 +45,7 @@ alias tt 'itools'
 alias json 'python3 -m json.tool'
 alias www 'python3 -m http.server 8000'
 
-function path
+function show-path
     printf '%s\n' $PATH
 end
 

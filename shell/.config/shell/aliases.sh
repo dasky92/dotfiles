@@ -76,7 +76,7 @@ alias www='python3 -m http.server 8000'
 # System Information
 # ============================================
 
-alias path='echo -e ${PATH//:/\\n}'
+alias show-path="echo -e ${PATH//:/\\n}"
 
 # Reload shell
 alias reload="exec ${SHELL} -l"
