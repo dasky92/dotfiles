@@ -25,22 +25,22 @@ bootstrap:
 # Install dotfiles with stow
 install:
 	@echo "📦 Installing dotfiles with stow..."
-	@stow -v -d $(PWD) -t $(HOME) shell
 	@stow -v -d $(PWD) -t $(HOME) config
+	@stow -v -d $(PWD) -t $(HOME) shell
 	@echo "✅ Dotfiles installed"
 
 # Uninstall dotfiles
 uninstall:
 	@echo "🗑️  Removing dotfiles symlinks..."
-	@stow -v -D -d $(PWD) -t $(HOME) shell
 	@stow -v -D -d $(PWD) -t $(HOME) config
+	@stow -v -D -d $(PWD) -t $(HOME) shell
 	@echo "✅ Symlinks removed"
 
 # Restow (reinstall)
 restow:
 	@echo "🔄 Restowing dotfiles..."
-	@stow -v -R -d $(PWD) -t $(HOME) shell
 	@stow -v -R -d $(PWD) -t $(HOME) config
+	@stow -v -R -d $(PWD) -t $(HOME) shell
 	@echo "✅ Dotfiles restowed"
 
 # Install Homebrew packages

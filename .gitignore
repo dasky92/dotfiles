@@ -8,6 +8,8 @@ shell/.config/shell/aliases.work.sh
 
 ### Local overrides (auto-generated) ###
 *.local
+local.{bash,zsh,fish}
+.local.{bash,zsh,fish}
 
 ### Backup files ###
 backup/
@@ -32,9 +34,3 @@ tags
 
 ### neovim ###
 nvim.lua/
-
-### pyenv ###
-.python-version
-
-### dotbot ###
-dotbot/

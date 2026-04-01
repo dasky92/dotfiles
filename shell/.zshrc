@@ -81,6 +81,6 @@ fi
 # Auto-generated Section (for tools)
 # ============================================
 
-if [ -f "$HOME/.zshrc.local" ]; then
-    source "$HOME/.zshrc.local"
+if [ -f "$HOME/.local.zsh" ]; then
+    source "$HOME/.local.zsh"
 fi

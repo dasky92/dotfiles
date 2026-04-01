@@ -55,6 +55,6 @@ fi
 # Auto-generated Section (for tools)
 # ============================================
 
-if [ -f "$HOME/.bashrc.local" ]; then
-    source "$HOME/.bashrc.local"
+if [ -f "$HOME/.local.bash" ]; then
+    source "$HOME/.local.bash"
 fi
