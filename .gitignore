@@ -1,16 +1,36 @@
 ### Python ###
 __pycache__/
 *.py[cod]
-### font ###
-fonts/
-### backup ###
+
+### Private configs ###
+shell/.config/shell/env.private.sh
+shell/.config/shell/aliases.work.sh
+
+### Local overrides (auto-generated) ###
+*.local
+local.{bash,zsh,fish}
+.local.{bash,zsh,fish}
+
+### Backup files ###
 backup/
-### other ###
+*.backup
+*~
+
+### Fonts ###
+fonts/
+
+### OS files ###
 .DS_Store
-### ctags file ###
+Thumbs.db
+
+### IDE ###
+.idea/
+.vscode/
+*.swp
+*.swo
+
+### ctags ###
 tags
+
 ### neovim ###
 nvim.lua/
-### pyenv ###
-.python-version
-dotbot/
