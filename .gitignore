@@ -37,6 +37,7 @@ nvim.lua/
 
 ### z.lua ###
 z.lua.fish
+zlua.fish
 
 ### fish ###
 fish_variables

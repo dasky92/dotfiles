@@ -58,7 +58,7 @@ zsh:
 
 zlua:
 	@echo "🦓 Setting up z.lua..."
-	@./scripts/setup_zsh.sh
+	@./scripts/convert_zlua_fish.sh
 
 # Test configuration
 test:
