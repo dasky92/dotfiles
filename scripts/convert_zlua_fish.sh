@@ -1,0 +1,1 @@
+lua config/z.lua --init fish > shell/.config/fish/conf.d/zlua.fish

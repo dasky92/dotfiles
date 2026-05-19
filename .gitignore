@@ -34,3 +34,11 @@ tags
 
 ### neovim ###
 nvim.lua/
+
+### z.lua ###
+z.lua.fish
+
+### fish ###
+fish_variables
+fish_frozen_theme.fish
+fish_prompt.fish
