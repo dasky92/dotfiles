@@ -14,6 +14,8 @@ help:
 	@echo "  make restow      - Reinstall dotfiles"
 	@echo "  make brew        - Install packages from Brewfile"
 	@echo "  make zsh         - Setup Zsh with Oh-My-Zsh and plugins"
+	@echo "  make zlua        - Convert z.lua to fish setup file"
+
 	@echo "  make test        - Test configuration"
 	@echo "  make clean       - Clean up broken symlinks"
 	@echo ""
@@ -51,7 +53,11 @@ brew:
 
 # Setup Zsh
 zsh:
-	@echo "🦓 Setting up Zsh..."
+	@echo "🔄 Setting up Zsh..."
+	@./scripts/convert_zlua_fish.sh
+
+zlua:
+	@echo "🦓 Setting up z.lua..."
 	@./scripts/setup_zsh.sh
 
 # Test configuration
